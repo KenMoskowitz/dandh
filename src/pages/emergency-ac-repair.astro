@@ -1,0 +1,202 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const title = "Emergency AC Repair Tucson | Available Right Now 24/7 | D&H AC";
+const description = "AC down in Tucson heat? D&H is available 24/7 — even holidays. Trucks on the road now. Average response 2–4 hours. Call (520) 664-3699.";
+const canonical = "https://dandhac.com/emergency-ac-repair";
+
+const faqItems = [
+  { question: "How fast can you get here?", answer: "Most emergency calls within 2–4 hours. We have trucks stationed throughout Tucson and surrounding areas." },
+  { question: "Do you charge extra for after-hours?", answer: "We offer transparent, upfront pricing. Our technician will give you a clear quote before any work begins." },
+  { question: "What if my AC is beyond repair?", answer: "We'll give you an honest assessment. If replacement is needed, we can often install a new system the same day or next day." },
+  { question: "Do you work on all AC brands?", answer: "Yes — Carrier, Trane, Lennox, Daikin, Rheem, York, Goodman, and 20+ more brands." },
+  { question: "Is emergency service available on holidays?", answer: "Absolutely. 365 days a year, 24 hours a day. No exceptions." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Emergency AC Repair",
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "D&H Air Conditioning & Heating & Plumbing",
+    "telephone": "(520) 664-3699",
+    "url": "https://dandhac.com"
+  },
+  "areaServed": "Tucson, AZ",
+  "description": "24/7 emergency air conditioning repair service in Tucson, AZ. Average response time 2–4 hours, all brands, all makes and models.",
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "https://dandhac.com/emergency-ac-repair",
+    "availableLanguage": "English"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={[faqSchema, serviceSchema]}>
+
+  <!-- Hero -->
+  <section class="bg-gradient-to-br from-red-700 to-orange-500 relative overflow-hidden">
+    <!-- PLACEHOLDER: Replace with real D&H emergency truck or technician arriving at night photography -->
+    <div class="absolute inset-0 opacity-20">
+      <img
+        src="https://images.unsplash.com/photo-1504701954957-2010ec3bcec1?auto=format&fit=crop&w=1400&q=60"
+        alt=""
+        aria-hidden="true"
+        width="1400" height="900"
+        loading="eager"
+        class="w-full h-full object-cover"
+      />
+    </div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+      <div class="text-center">
+        <div class="inline-flex items-center gap-2 bg-white/20 text-white text-xs font-bold px-4 py-2 rounded-full mb-6 uppercase tracking-wider">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          24/7 Emergency Service — Trucks On The Road Now
+        </div>
+        <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-5">
+          Emergency AC Repair in Tucson —<br class="hidden md:block" /> Available Right Now
+        </h1>
+        <p class="text-orange-100 text-xl md:text-2xl leading-relaxed mb-8 max-w-2xl mx-auto">
+          Trucks on the road. Techs on call. We answer 24/7, even on holidays.
+        </p>
+        <a
+          href="tel:5206643699"
+          class="block w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 bg-white text-red-700 hover:bg-orange-50 font-extrabold text-2xl md:text-3xl px-10 py-5 rounded-2xl transition-colors shadow-2xl mb-6"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          CALL (520) 664-3699 NOW
+        </a>
+        <div class="inline-flex items-center gap-2 bg-white/25 text-white text-sm font-semibold px-5 py-2.5 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Average response: 2–4 hours
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What to expect -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-3">What to expect when you call</h2>
+        <p class="text-[var(--color-muted)] text-lg">Simple. Fast. No runaround.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          {
+            num: '1',
+            title: 'You call',
+            sub: 'We dispatch within minutes',
+            desc: 'A real person answers — not a voicemail, not a call center. We take your info and get a tech rolling.',
+            color: 'bg-red-600'
+          },
+          {
+            num: '2',
+            title: 'We dispatch',
+            sub: 'Nearest truck en route',
+            desc: 'We route the closest available technician to your home. You get a heads-up when they\'re on the way.',
+            color: 'bg-orange-500'
+          },
+          {
+            num: '3',
+            title: 'AC fixed',
+            sub: 'Same-day in most cases',
+            desc: 'Our trucks are stocked with common parts. Most repairs are completed in a single visit.',
+            color: 'bg-green-600'
+          },
+        ].map(step => (
+          <div class="reveal bg-[var(--color-cloud)] rounded-2xl p-7 border border-[var(--color-border)] text-center">
+            <div class={`w-14 h-14 ${step.color} text-white font-extrabold text-2xl rounded-full flex items-center justify-center mx-auto mb-4`}>{step.num}</div>
+            <h3 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-1">{step.title}</h3>
+            <p class="text-[var(--color-orange)] font-semibold text-sm mb-3">{step.sub}</p>
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <TrustBadges />
+
+  <!-- Since 1959 section -->
+  <section class="py-16 md:py-24 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="reveal text-center lg:text-left">
+          <p class="font-display font-extrabold text-[10rem] md:text-[14rem] leading-none text-[var(--color-cloud)] select-none">1959</p>
+        </div>
+        <div class="reveal">
+          <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-5">
+            We've been handling Tucson AC emergencies since 1959
+          </h2>
+          <p class="text-[var(--color-muted)] text-lg leading-relaxed mb-5">
+            Over 65 years ago, Arthur Duhamel and Harry Hawk started D&H with a simple promise: show up, do it right, treat people fairly. That promise is still alive in every emergency call we take today.
+          </p>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-6">
+            We've weathered Tucson summers alongside our neighbors — record heat years, nights when every AC in town seemed to fail at once, and everything in between. No matter the hour, our trucks roll.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-[var(--color-cloud)] rounded-xl px-5 py-3 text-center">
+              <p class="font-display font-extrabold text-2xl text-[var(--color-navy)]">4.8★</p>
+              <p class="text-xs text-[var(--color-muted)]">4,000+ Google reviews</p>
+            </div>
+            <div class="bg-[var(--color-cloud)] rounded-xl px-5 py-3 text-center">
+              <p class="font-display font-extrabold text-2xl text-[var(--color-navy)]">NATE</p>
+              <p class="text-xs text-[var(--color-muted)]">Certified technicians</p>
+            </div>
+            <div class="bg-[var(--color-cloud)] rounded-xl px-5 py-3 text-center">
+              <p class="font-display font-extrabold text-2xl text-[var(--color-navy)]">24/7</p>
+              <p class="text-xs text-[var(--color-muted)]">365 days a year</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 bg-[var(--color-cloud)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-3">Questions about emergency AC repair</h2>
+        <p class="text-[var(--color-muted)]">Answered honestly, the way we've always done things.</p>
+      </div>
+      <FAQAccordion items={faqItems} id="emergency-faq" />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-[var(--color-navy)] py-16">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-extrabold text-3xl md:text-4xl text-white mb-4">
+        Don't suffer through another hour without AC.
+      </h2>
+      <p class="text-blue-200 text-xl mb-8">Call us now. We're ready.</p>
+      <a
+        href="tel:5206643699"
+        class="block w-full sm:w-auto sm:inline-flex items-center justify-center gap-3 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-extrabold text-2xl px-10 py-5 rounded-2xl transition-colors shadow-xl mb-5"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        CALL (520) 664-3699
+      </a>
+      <p class="text-blue-300 text-sm">
+        or <a href="/contact" class="underline hover:text-white transition-colors">schedule online →</a>
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

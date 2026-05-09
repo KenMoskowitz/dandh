@@ -1,0 +1,381 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import SavingsCalculator from '../components/SavingsCalculator.astro';
+
+const title = "D&H Family Maintenance Plan | Tucson HVAC Maintenance | D&H AC";
+const description = "Join 1,000+ Tucson homeowners on the D&H Family Maintenance Plan. Two tune-ups a year, priority dispatch, 10% off repairs, and no after-hours surcharges — starting at $199/year.";
+const canonical = "https://dandhac.com/family-maintenance-plan";
+
+const faqItems = [
+  {
+    question: "What does the plan cost?",
+    answer: "Plans start at $199/year per system. Multi-system discounts are available — call us at (520) 408-2665 to get a quote for your home."
+  },
+  {
+    question: "When do my benefits start?",
+    answer: "Immediately upon enrollment. Your first tune-up can be scheduled right away — we'll get you on the calendar the same day you sign up."
+  },
+  {
+    question: "Does the plan cover repairs?",
+    answer: "The plan covers tune-ups and full system inspections. Repairs are not included, but plan members receive a 10% discount on all repair work — parts and labor."
+  },
+  {
+    question: "Can I cancel?",
+    answer: "Yes, anytime. We'll refund the prorated unused portion — no questions asked, no cancellation fees."
+  },
+  {
+    question: "Does the plan work on all systems?",
+    answer: "Yes — all brands, all ages. Whether you have a 2-year-old Daikin or a 20-year-old Carrier, our technicians are trained to service it."
+  }
+];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "D&H Family Maintenance Plan",
+  "provider": {
+    "@type": "HVACBusiness",
+    "name": "D&H Air Conditioning & Heating & Plumbing",
+    "url": "https://dandhac.com",
+    "telephone": "(520) 408-2665"
+  },
+  "description": "Annual HVAC maintenance plan including bi-annual tune-ups, priority dispatch, 10% repair discounts, and no after-hours surcharges.",
+  "areaServed": "Tucson, AZ"
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+
+  <!-- ======= HERO ======= -->
+  <section class="bg-[var(--color-navy)] text-white py-20 md:py-28 relative overflow-hidden">
+    <!-- Background texture -->
+    <div class="absolute inset-0 opacity-10" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid)" />
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative">
+      <!-- Trust pill -->
+      <div class="inline-flex items-center gap-2 bg-[var(--color-orange)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        Join 1,000+ Tucson homeowners
+      </div>
+
+      <h1 class="font-display font-800 text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+        The D&H Family<br class="hidden md:block" />
+        <span class="text-[var(--color-orange)]">Maintenance Plan</span>
+      </h1>
+
+      <p class="text-blue-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        One flat rate. Two visits a year. Priority scheduling. Discounts on repairs.<br class="hidden md:block" />
+        Peace of mind year-round.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Join the Family Plan — Starting at $199/year
+        </a>
+        <a
+          href="tel:5204082665"
+          class="inline-block border-2 border-white/30 hover:border-white text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Call (520) 408-2665
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= WHAT YOU GET ======= -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+          Everything the Plan Includes
+        </h2>
+        <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+          One low annual price covers all of this — for every system in your home.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 max-w-6xl mx-auto">
+
+        <!-- Feature Card: Bi-annual tune-ups -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">Bi-Annual Tune-Ups</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            One tune-up every spring before the heat hits, and one in the fall before heating season. Your system stays in peak shape all year.
+          </p>
+        </div>
+
+        <!-- Feature Card: Priority dispatch -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">Priority Dispatch</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            When your AC goes out in a 110° Tucson summer, you go to the front of the line. Plan members get priority scheduling — no waiting behind non-members.
+          </p>
+        </div>
+
+        <!-- Feature Card: 10% off repairs -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">10% Off All Repairs</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            Parts and labor. Every repair, every time. When a capacitor or compressor needs replacing, you automatically save 10% off our standard rates.
+          </p>
+        </div>
+
+        <!-- Feature Card: Filter replacement -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">Filter Replacement Included</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            Fresh filters during every tune-up visit. Clean filters mean better air quality, lower energy bills, and a longer-lasting system.
+          </p>
+        </div>
+
+        <!-- Feature Card: Full system inspection -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">Full System Inspection</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            Our technicians inspect every major component — coils, refrigerant levels, electrical connections, drainage, and more. We catch small problems before they become expensive ones.
+          </p>
+        </div>
+
+        <!-- Feature Card: No after-hours surcharges -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">No After-Hours Surcharges</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            A Sunday night breakdown doesn't cost plan members extra. After-hours fees are waived for all Family Plan members — anytime, any day.
+          </p>
+        </div>
+
+        <!-- Feature Card: Warranty compliance -->
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 flex flex-col gap-4 reveal">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-full bg-[var(--color-success)] flex items-center justify-center shrink-0">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-base">Warranty Compliance Maintained</h3>
+          </div>
+          <p class="text-[var(--color-muted)] text-sm leading-relaxed">
+            Most manufacturers require documented annual maintenance to keep warranties valid. The Family Plan keeps your records clean and your coverage intact.
+          </p>
+        </div>
+
+        <!-- CTA card -->
+        <div class="bg-[var(--color-navy)] rounded-2xl p-6 flex flex-col gap-4 justify-between reveal">
+          <div>
+            <p class="font-display font-800 text-white text-xl mb-2">Starting at $199/year</p>
+            <p class="text-blue-200 text-sm">Multi-system discounts available. Covers all brands, all ages.</p>
+          </div>
+          <a
+            href="/contact"
+            class="block text-center bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold py-3 rounded-xl transition-colors"
+          >
+            Enroll Today
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= SAVINGS CALCULATOR ======= -->
+  <section class="bg-[var(--color-cloud)] py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+            See What You'll Save
+          </h2>
+          <p class="text-[var(--color-muted)] text-lg">
+            Adjust the sliders to calculate your personalized savings estimate.
+          </p>
+        </div>
+        <SavingsCalculator />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= COMPARISON TABLE ======= -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+          Plan vs. No Plan
+        </h2>
+        <p class="text-[var(--color-muted)] text-lg max-w-lg mx-auto">
+          The numbers speak for themselves. Here's what you're getting — or missing.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto overflow-hidden rounded-2xl border border-[var(--color-border)] shadow-sm">
+        <!-- Table header -->
+        <div class="grid grid-cols-3 bg-[var(--color-navy)] text-white">
+          <div class="p-4 font-semibold text-sm text-blue-200">Coverage</div>
+          <div class="p-4 font-bold text-center text-sm border-l border-blue-800">Without Plan</div>
+          <div class="p-4 font-bold text-center text-sm border-l border-blue-800 text-[var(--color-orange)]">With Family Plan</div>
+        </div>
+
+        <!-- Row 1 -->
+        <div class="grid grid-cols-3 border-b border-[var(--color-border)] bg-white">
+          <div class="p-4 text-sm font-medium text-[var(--color-charcoal)]">Annual Tune-Ups</div>
+          <div class="p-4 text-center text-sm text-[var(--color-muted)] border-l border-[var(--color-border)]">0</div>
+          <div class="p-4 text-center text-sm font-semibold text-[var(--color-success)] border-l border-[var(--color-border)]">2 (spring + fall)</div>
+        </div>
+
+        <!-- Row 2 -->
+        <div class="grid grid-cols-3 border-b border-[var(--color-border)] bg-[var(--color-cloud)]">
+          <div class="p-4 text-sm font-medium text-[var(--color-charcoal)]">After-Hours Fees</div>
+          <div class="p-4 text-center text-sm text-[var(--color-muted)] border-l border-[var(--color-border)]">Full price</div>
+          <div class="p-4 text-center text-sm font-semibold text-[var(--color-success)] border-l border-[var(--color-border)]">Waived</div>
+        </div>
+
+        <!-- Row 3 -->
+        <div class="grid grid-cols-3 border-b border-[var(--color-border)] bg-white">
+          <div class="p-4 text-sm font-medium text-[var(--color-charcoal)]">Repair Discounts</div>
+          <div class="p-4 text-center text-sm text-[var(--color-muted)] border-l border-[var(--color-border)]">None</div>
+          <div class="p-4 text-center text-sm font-semibold text-[var(--color-success)] border-l border-[var(--color-border)]">10% off all repairs</div>
+        </div>
+
+        <!-- Row 4 -->
+        <div class="grid grid-cols-3 border-b border-[var(--color-border)] bg-[var(--color-cloud)]">
+          <div class="p-4 text-sm font-medium text-[var(--color-charcoal)]">Priority Dispatch</div>
+          <div class="p-4 text-center border-l border-[var(--color-border)]">
+            <span class="text-red-400 font-bold">✗</span>
+          </div>
+          <div class="p-4 text-center border-l border-[var(--color-border)]">
+            <span class="text-[var(--color-success)] font-bold">✓</span>
+          </div>
+        </div>
+
+        <!-- Row 5 -->
+        <div class="grid grid-cols-3 bg-white">
+          <div class="p-4 text-sm font-medium text-[var(--color-charcoal)]">Peace of Mind</div>
+          <div class="p-4 text-center border-l border-[var(--color-border)]">
+            <span class="text-red-400 font-bold">✗</span>
+          </div>
+          <div class="p-4 text-center border-l border-[var(--color-border)]">
+            <span class="text-[var(--color-success)] font-bold">✓</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TESTIMONIAL ======= -->
+  <section class="bg-[var(--color-navy)] py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <!-- Quote mark -->
+        <svg class="w-10 h-10 text-[var(--color-orange)] mx-auto mb-6" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+        </svg>
+
+        <blockquote class="text-white text-xl md:text-2xl font-display font-600 leading-relaxed mb-8">
+          "The plan paid for itself the first time I called. No after-hours charge, pushed to the front of the line. I'm a lifer."
+        </blockquote>
+
+        <div class="flex items-center justify-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[var(--color-sky)] flex items-center justify-center text-white font-bold text-lg">T</div>
+          <div class="text-left">
+            <p class="text-white font-bold">Tom W.</p>
+            <p class="text-blue-300 text-sm">Tucson, AZ — Family Plan Member</p>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6 text-yellow-400">
+          {Array(5).fill(null).map(() => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TRUST BADGES ======= -->
+  <TrustBadges />
+
+  <!-- ======= FAQ ======= -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-[var(--color-muted)] text-lg">
+            Everything you need to know before you enroll.
+          </p>
+        </div>
+        <FAQAccordion items={faqItems} id="faq-plan" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= FINAL CTA ======= -->
+  <section class="bg-[var(--color-cloud)] py-16 md:py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+        Join the Family Plan Today
+      </h2>
+      <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto mb-8">
+        Starting at $199/year per system. Same-day enrollment. Benefits start immediately. Cancel anytime.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors"
+        >
+          Join the Family Plan — Starting at $199/year
+        </a>
+        <a
+          href="tel:5204082665"
+          class="inline-block border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors"
+        >
+          Call (520) 408-2665
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

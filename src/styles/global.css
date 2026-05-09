@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+:root {
+  --color-navy: #1A3F6F;
+  --color-sky: #3B82C4;
+  --color-cloud: #F0F4F8;
+  --color-orange: #FF6B35;
+  --color-orange-dark: #E55A24;
+  --color-white: #FFFFFF;
+  --color-charcoal: #1C1C2E;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-success: #16A34A;
+}
+
+@theme {
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #1A3F6F;
+  --color-sky: #3B82C4;
+  --color-cloud: #F0F4F8;
+  --color-orange: #FF6B35;
+  --color-orange-dark: #E55A24;
+  --color-charcoal: #1C1C2E;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-success: #16A34A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background: #fff;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-display);
+}
+
+/* Scroll reveal animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Review ticker */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker 40s linear infinite;
+  display: flex;
+  width: max-content;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Diagonal hero pattern */
+.hero-pattern {
+  background-image:
+    linear-gradient(135deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(255,255,255,0.04) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(255,255,255,0.04) 25%, transparent 25%);
+  background-size: 60px 60px;
+}
+
+/* Emergency gradient */
+.emergency-gradient {
+  background: linear-gradient(135deg, #b91c1c 0%, var(--color-orange) 100%);
+}

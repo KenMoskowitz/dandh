@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+
+const title = "Plumbing Services in Tucson, AZ | D&H Air Conditioning & Plumbing";
+const description = "Licensed plumbers in Tucson, AZ. Water heaters, drain cleaning, leak repair, emergency plumbing — same-day available. Call D&H: (520) 408-2665.";
+const canonical = "https://dandhac.com/plumbing";
+
+const faqItems = [
+  { question: "Are your plumbers licensed?", answer: "Yes. All D&H plumbers are licensed, insured, and background-checked." },
+  { question: "Do you offer emergency plumbing?", answer: "Yes. 24/7 for serious plumbing emergencies like burst pipes or major leaks." },
+  { question: "Can you handle water heater replacement?", answer: "Yes — traditional tank and tankless water heater installation and repair." },
+  { question: "What areas do you serve for plumbing?", answer: "All of greater Tucson, including Oro Valley, Marana, Green Valley, and surrounding areas." },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+};
+
+const plumbingServices = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>`,
+    name: "Water Heaters",
+    desc: "Tank and tankless water heater installation, repair, and replacement. We carry leading brands and can often install same-day.",
+    badge: "Install & Repair"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>`,
+    name: "Drain Cleaning",
+    desc: "Slow or clogged drains cleared fast. Kitchen, bathroom, main line — we have the tools to handle any blockage.",
+    badge: "Fast Clearing"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+    name: "Leak Repair",
+    desc: "Pinhole leaks, pipe bursts, slab leaks, and everything in between. We find the source and fix it right.",
+    badge: "Detect & Fix"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>`,
+    name: "Fixture Installation",
+    desc: "Faucets, toilets, sinks, showers, and more. We install fixtures right the first time — no drips, no callbacks.",
+    badge: "All Fixtures"
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>`,
+    name: "Emergency Plumbing",
+    desc: "Burst pipes, overflowing fixtures, or sewage backups — we respond 24/7 for serious plumbing emergencies.",
+    badge: "24/7 Available",
+    urgent: true
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>`,
+    name: "Pipe Repair",
+    desc: "Corroded, cracked, or burst pipes repaired or repiped. We work with copper, PVC, PEX, and galvanized.",
+    badge: "All Materials"
+  },
+];
+
+const trustPoints = [
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>`,
+    title: "Licensed & insured",
+    desc: "Every D&H plumber is licensed by the state of Arizona, bonded, and carries full insurance."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: "Same-day available",
+    desc: "We know plumbing problems don't wait. We schedule same-day appointments in most cases."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+    title: "Upfront pricing",
+    desc: "No surprises on the bill. We quote before we start and stick to the number."
+  },
+  {
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
+    title: "65 years of Tucson trust",
+    desc: "D&H has served Tucson since 1959. Our plumbers carry that same reputation into every home."
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={faqSchema}>
+
+  <!-- Hero -->
+  <section class="bg-[var(--color-navy)] relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5" style="background-image: url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%23ffffff\' fill-opacity=\'1\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 bg-white/15 text-white text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider">
+          Licensed Plumbers · Same-Day Available · Upfront Pricing
+        </div>
+        <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-tight mb-5">
+          Tucson Plumbing Services —<br class="hidden md:block" /> The Same D&H Trust, Now for Your Pipes
+        </h1>
+        <p class="text-blue-200 text-xl leading-relaxed mb-8">
+          Licensed plumbers. Same-day service. The reliability you already know from D&H HVAC, now for everything plumbing.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-7 py-4 rounded-xl transition-colors shadow-lg">
+            Schedule a Plumber
+          </a>
+          <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[var(--color-navy)] font-bold text-base px-7 py-4 rounded-xl transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (520) 408-2665
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services grid -->
+  <section class="py-16 md:py-24 bg-[var(--color-cloud)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-3">Plumbing services we offer</h2>
+        <p class="text-[var(--color-muted)] text-lg">From routine installs to plumbing emergencies — we handle it all.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {plumbingServices.map(s => (
+          <div class={`reveal bg-white rounded-2xl p-7 border shadow-sm hover:shadow-md transition-shadow ${s.urgent ? 'border-red-200' : 'border-[var(--color-border)]'}`}>
+            <div class={`mb-4 ${s.urgent ? 'text-red-600' : 'text-[var(--color-navy)]'}`} set:html={s.icon} />
+            <div class="flex items-center gap-2 mb-3">
+              <h3 class="font-display font-bold text-lg text-[var(--color-charcoal)]">{s.name}</h3>
+              <span class={`text-xs font-bold px-2.5 py-1 rounded-full ${s.urgent ? 'bg-red-100 text-red-700' : 'bg-blue-50 text-[var(--color-navy)]'}`}>{s.badge}</span>
+            </div>
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed">{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why D&H for plumbing -->
+  <section class="py-16 md:py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-3">Why choose D&H for plumbing?</h2>
+        <p class="text-[var(--color-muted)] text-lg">The same values that built our HVAC reputation — brought to your pipes.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {trustPoints.map(tp => (
+          <div class="reveal text-center bg-[var(--color-cloud)] rounded-2xl p-6 border border-[var(--color-border)]">
+            <div class="text-[var(--color-navy)] flex justify-center mb-4" set:html={tp.icon} />
+            <h3 class="font-display font-bold text-base text-[var(--color-charcoal)] mb-2">{tp.title}</h3>
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed">{tp.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ServiceTitan booking widget -->
+  <section class="py-16 bg-[var(--color-cloud)]">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-3">Book a Plumber</h2>
+        <p class="text-[var(--color-muted)] text-lg">Pick your service and choose a time — we'll confirm right away.</p>
+      </div>
+      <div class="bg-white rounded-2xl border border-[var(--color-border)] shadow-sm overflow-hidden">
+        <!-- PLACEHOLDER: ServiceTitan WebScheduler embed. Replace tenantid with correct plumbing tenant ID if different from HVAC -->
+        <iframe
+          src="https://go.servicetitan.com/webscheduler?tenantid=352742287"
+          width="100%"
+          height="500"
+          loading="lazy"
+          style="border: none;"
+          title="Book a plumber online"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <TrustBadges />
+
+  <!-- FAQ -->
+  <section class="py-16 md:py-20 bg-[var(--color-cloud)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10 reveal">
+        <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-3">Plumbing questions answered</h2>
+        <p class="text-[var(--color-muted)]">The most common questions Tucson homeowners ask us about plumbing.</p>
+      </div>
+      <FAQAccordion items={faqItems} id="plumbing-faq" />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-[var(--color-navy)] py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-extrabold text-3xl text-white mb-4">Plumbing issue? We're on it.</h2>
+      <p class="text-blue-200 text-lg mb-8">Same-day scheduling. Licensed plumbers. The D&H name you already trust.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          Schedule a Plumber
+        </a>
+        <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[var(--color-navy)] font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call (520) 408-2665
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  icon: string; // SVG path string or inline SVG
+  urgent?: boolean;
+}
+
+const { title, description, href, icon, urgent = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class={`group block rounded-2xl p-6 border transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5
+    ${urgent
+      ? 'border-orange-200 bg-orange-50 hover:border-[var(--color-orange)]'
+      : 'border-[var(--color-border)] bg-white hover:border-[var(--color-sky)]'
+    }`}
+>
+  <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors
+    ${urgent
+      ? 'bg-orange-100 text-[var(--color-orange)] group-hover:bg-[var(--color-orange)] group-hover:text-white'
+      : 'bg-[var(--color-cloud)] text-[var(--color-sky)] group-hover:bg-[var(--color-sky)] group-hover:text-white'
+    }`}>
+    <Fragment set:html={icon} />
+  </div>
+  <h3 class={`font-display font-700 text-lg mb-2 transition-colors
+    ${urgent ? 'text-[var(--color-orange)] group-hover:text-[var(--color-orange-dark)]' : 'text-[var(--color-charcoal)] group-hover:text-[var(--color-navy)]'}`}>
+    {title}
+  </h3>
+  <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-4">{description}</p>
+  <span class={`text-sm font-semibold flex items-center gap-1 transition-colors
+    ${urgent ? 'text-[var(--color-orange)]' : 'text-[var(--color-sky)]'}`}>
+    Learn More
+    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </span>
+</a>

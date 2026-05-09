@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import FAQAccordion from '../../components/FAQAccordion.astro';
+
+const title = "Mini-Split & Ductless AC Systems in Tucson | D&H Air Conditioning";
+const description = "Mini-split and ductless AC installation in Tucson, AZ. No ductwork needed, zone-perfect comfort, SEER ratings up to 26.1. Daikin dealer. Call (520) 408-2665.";
+const canonical = "https://dandhac.com/products/mini-splits/";
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dandhac.com/" },
+    { "@type": "ListItem", "position": 2, "name": "Products", "item": "https://dandhac.com/products/" },
+    { "@type": "ListItem", "position": 3, "name": "Mini-Splits", "item": canonical }
+  ]
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Daikin Mini-Split & Ductless AC Systems",
+  "brand": { "@type": "Brand", "name": "Daikin" },
+  "description": "Ductless mini-split air conditioning systems offering zone-perfect comfort, no ductwork required, SEER ratings up to 26.1, heating down to -4°F outdoor temperature.",
+  "offers": {
+    "@type": "Offer",
+    "seller": { "@type": "HVACBusiness", "name": "D&H Air Conditioning & Heating & Plumbing", "telephone": "(520) 408-2665" },
+    "areaServed": { "@type": "City", "name": "Tucson", "addressRegion": "AZ" }
+  }
+};
+
+const useCases = [
+  { title: "Room additions", description: "Extending your home without extending your ductwork is the classic mini-split scenario. A single wall-mount unit keeps the new space comfortable without overloading your existing system." },
+  { title: "Garages & workshops", description: "Detached garages and workshops are nearly impossible to condition with central AC. A mini-split handles it efficiently, with no duct runs across the property." },
+  { title: "Older homes without ducts", description: "Homes built before the 1970s often have no ductwork at all. Mini-splits deliver modern AC comfort without the cost and disruption of installing an entirely new duct system." },
+  { title: "Zoned cooling", description: "When family members have different temperature preferences — or when you have rooms that run hot or cold relative to the rest of the house — mini-splits let you dial in exactly the comfort level you want, room by room." },
+  { title: "Bonus rooms & sunrooms", description: "Above-garage spaces, sunrooms, and bonus rooms are notoriously hard to condition with central systems. A dedicated mini-split solves the problem permanently." },
+  { title: "Server rooms & home offices", description: "Equipment that runs hot 24/7 needs dedicated cooling. A mini-split can maintain precise temperatures independently, without affecting the rest of your home." },
+];
+
+const faqItems = [
+  {
+    question: "How much does a mini-split installation cost in Tucson?",
+    answer: "Mini-split costs vary based on the size of the unit, the number of indoor heads (zones), and the complexity of the installation. A single-zone system for a room addition or garage typically starts in the $2,500–$4,500 range installed. Multi-zone systems for multiple rooms run higher. D&H offers free estimates — call (520) 408-2665 to schedule one, and we'll give you an exact number for your situation."
+  },
+  {
+    question: "Do mini-splits work for heating in Tucson winters?",
+    answer: "Yes — modern mini-splits are heat pumps that provide both cooling and heating. Daikin's mini-split line can operate in heating mode down to -4°F outdoor temperature, which is far colder than Tucson ever gets. This makes them extremely efficient for Tucson's mild winters, avoiding the need for a separate heating system in many applications."
+  },
+  {
+    question: "How long does mini-split installation take?",
+    answer: "A single-zone mini-split installation is typically completed in one day — often in just 4–6 hours. Our installers handle everything: mounting the indoor unit, running the refrigerant lines, mounting the outdoor condenser, and making the electrical connections. We leave you with a fully operational system and a walkthrough of the controls."
+  },
+  {
+    question: "Do Daikin mini-splits qualify for federal tax credits?",
+    answer: "Yes. High-efficiency mini-splits — including many Daikin models — qualify for the federal Energy Efficient Home Improvement Credit under the Inflation Reduction Act. This credit covers up to 30% of the installed cost, up to $2,000 per year for heat pumps. We'll help you identify which systems qualify. Ask about this when you call for your free estimate."
+  }
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={[breadcrumbSchema, productSchema]}>
+
+  <!-- Hero -->
+  <section class="bg-[var(--color-navy)] hero-pattern py-16 md:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="text-sm text-blue-300 mb-6">
+        <a href="/" class="hover:text-white">Home</a>
+        <span class="mx-2">/</span>
+        <a href="/products/" class="hover:text-white">Products</a>
+        <span class="mx-2">/</span>
+        <span class="text-blue-100">Mini-Splits</span>
+      </nav>
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 bg-blue-800/50 text-blue-200 text-xs font-semibold px-3 py-1.5 rounded-full mb-5">
+          Daikin Authorized Dealer · No Ductwork Required
+        </div>
+        <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-tight mb-5">
+          Mini-Split &amp; Ductless Systems —<br class="hidden md:block" /> Zone-Perfect Comfort
+        </h1>
+        <p class="text-blue-200 text-lg md:text-xl leading-relaxed mb-8">
+          The most flexible cooling and heating solution available — no ducts, no compromise. D&H installs and services Daikin mini-splits throughout the Tucson area.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-6 py-4 rounded-xl transition-colors shadow-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+            Get a Free Estimate
+          </a>
+          <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[var(--color-navy)] font-bold text-base px-6 py-4 rounded-xl transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call (520) 408-2665
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What Is a Mini-Split -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div>
+          <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-4">What is a mini-split system?</h2>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+            A mini-split — also called a ductless system — delivers cooling and heating directly to a room without using any ductwork. It consists of two components: a small wall-mounted (or ceiling-mounted) indoor unit, and a compact outdoor condenser. The two are connected by a thin refrigerant line that requires only a 3-inch hole in the wall.
+          </p>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+            Because there's no ductwork, there's no duct loss — and in Tucson, duct loss can account for 20–30% of your cooling energy. Mini-splits deliver conditioned air exactly where you need it, at the efficiency level you choose.
+          </p>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            Modern mini-splits are heat pumps — they both cool and heat, making them a complete year-round comfort solution for spaces that need it.
+          </p>
+        </div>
+        <div class="bg-[var(--color-cloud)] rounded-2xl p-6 border border-[var(--color-border)]">
+          <h3 class="font-display font-bold text-lg text-[var(--color-charcoal)] mb-4">Daikin mini-split specs at a glance</h3>
+          <ul class="space-y-3">
+            {[
+              { label: "Capacity range", value: "0.75 – 3.5 tons" },
+              { label: "SEER efficiency", value: "Up to 26.1 SEER" },
+              { label: "Heating down to", value: "-4°F outdoor temperature" },
+              { label: "Mount options", value: "Wall, ceiling cassette, floor" },
+              { label: "Zones per outdoor unit", value: "1 to 5 indoor units" },
+              { label: "Warranty", value: "12-year parts (registered)" },
+            ].map(item => (
+              <li class="flex items-center justify-between border-b border-[var(--color-border)] pb-2 last:border-0 last:pb-0">
+                <span class="text-sm text-[var(--color-muted)]">{item.label}</span>
+                <span class="text-sm font-bold text-[var(--color-charcoal)]">{item.value}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- When Mini-Splits Make Sense -->
+  <section class="py-16 bg-[var(--color-cloud)]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-3">When a mini-split is the right choice</h2>
+        <p class="text-[var(--color-muted)] max-w-xl mx-auto">Not every cooling problem needs a central system replacement. Mini-splits excel in these situations.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {useCases.map(uc => (
+          <div class="bg-white rounded-2xl p-6 border border-[var(--color-border)] shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-[var(--color-sky)] flex items-center justify-center mb-4">
+              <svg class="text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-[var(--color-charcoal)] mb-2">{uc.title}</h3>
+            <p class="text-sm text-[var(--color-muted)] leading-relaxed">{uc.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Daikin Lineup -->
+  <section class="py-16 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-[var(--color-cloud)] text-[var(--color-navy)] text-xs font-bold px-3 py-1.5 rounded-full mb-4">Daikin Comfort Pro Dealer</div>
+          <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-4">The Daikin mini-split lineup</h2>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+            D&H is an authorized Daikin Comfort Pro dealer — which means we have direct access to Daikin's full product line, genuine parts, and technical support. We install Daikin exclusively because we've seen the difference in reliability, efficiency, and warranty coverage firsthand.
+          </p>
+          <p class="text-[var(--color-muted)] leading-relaxed mb-4">
+            Daikin's mini-split lineup ranges from the FTX single-zone wall mount (ideal for single rooms) to the multi-zone MXS outdoor unit, which can power up to 5 indoor units from a single condenser. SEER ratings up to 26.1 make these some of the most efficient residential systems available anywhere.
+          </p>
+          <p class="text-[var(--color-muted)] leading-relaxed">
+            All Daikin mini-splits purchased through D&H come with a 12-year parts warranty when registered within 60 days of installation. That's the best warranty coverage in the industry — and it only applies when installed by a Daikin Comfort Pro dealer like D&H.
+          </p>
+        </div>
+        <div class="bg-[var(--color-navy)] rounded-2xl p-8 text-white">
+          <h3 class="font-display font-bold text-xl mb-6">Why Daikin mini-splits outperform the competition</h3>
+          <ul class="space-y-4">
+            {[
+              "Inverter-driven compressors that modulate output — no on/off cycling",
+              "SEER ratings up to 26.1 — dramatically lower operating costs",
+              "Heating down to -4°F — full-year comfort with one system",
+              "Ultra-quiet operation — some models as low as 19 dB",
+              "Built-in WiFi on select models for smartphone control",
+              "12-year parts warranty through D&H (registered equipment)",
+            ].map(item => (
+              <li class="flex items-start gap-3">
+                <svg class="shrink-0 mt-0.5 text-[var(--color-orange)]" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span class="text-blue-100 text-sm leading-relaxed">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <TrustBadges />
+
+  <!-- FAQ -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-8 text-center">Mini-Split FAQs</h2>
+      <FAQAccordion items={faqItems} id="faq-mini-splits" />
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="bg-[var(--color-orange)] py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-extrabold text-3xl text-white mb-4">Ready to explore a mini-split for your home?</h2>
+      <p class="text-orange-100 mb-7">Call D&H at (520) 408-2665 for a free, no-pressure assessment. We'll tell you exactly which system makes sense — and exactly what it will cost.</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 bg-white text-[var(--color-orange)] hover:bg-orange-50 font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (520) 408-2665
+        </a>
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[var(--color-orange)] font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Get a Free Estimate Online
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

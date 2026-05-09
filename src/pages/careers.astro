@@ -1,0 +1,380 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "HVAC Careers in Tucson | Work at D&H Air Conditioning";
+const description = "Join D&H Air Conditioning in Tucson, AZ. HVAC technician, installer, CSR, and dispatcher positions open. Competitive pay, full benefits, signing bonus. Apply today.";
+const canonical = "https://dandhac.com/careers";
+
+const benefits = [
+  {
+    icon: "dollar",
+    title: "Competitive Pay",
+    desc: "Flat-rate and per-job compensation structures that reward your skill and speed. Top techs earn top dollar — no cap on what you can make."
+  },
+  {
+    icon: "heart",
+    title: "Full Benefits Package",
+    desc: "Health, dental, and vision coverage for you and your family. We take care of the people who take care of Tucson."
+  },
+  {
+    icon: "star",
+    title: "Signing Bonus",
+    desc: "Experienced technicians receive a signing bonus upon hire. If you've got the skills, we want to make it worth your while to join us."
+  },
+  {
+    icon: "book",
+    title: "Continuous Training",
+    desc: "Our dedicated training facility keeps your certifications current and your skills sharp. We invest in you — all year, every year."
+  },
+  {
+    icon: "shield",
+    title: "Job Security",
+    desc: "D&H has been in business for 65+ years. We're not going anywhere. Build a career here — not just a job."
+  },
+  {
+    icon: "clock",
+    title: "Flexible Scheduling",
+    desc: "We work with our team to build schedules that make sense. Life doesn't stop when the shift ends — and we know that."
+  },
+];
+
+const positions = [
+  {
+    title: "HVAC Technician",
+    type: "Full-Time",
+    pay: "Flat-Rate",
+    desc: "Service and repair all makes and models of residential HVAC equipment across the greater Tucson area. NATE certification preferred. EPA 608 required. Competitive flat-rate pay structure with real earning potential for skilled techs.",
+    requirements: [
+      "EPA 608 certification required",
+      "2+ years HVAC service experience preferred",
+      "NATE certification a plus",
+      "Valid AZ driver's license",
+      "Customer-facing communication skills"
+    ]
+  },
+  {
+    title: "HVAC Installer",
+    type: "Full-Time",
+    pay: "Per-Job",
+    desc: "Install new residential HVAC systems for Tucson homeowners. Experience with Daikin equipment preferred. Per-job compensation means your earnings scale with your output. Work with a crew that takes pride in a clean, professional install.",
+    requirements: [
+      "2+ years installation experience",
+      "Daikin experience preferred",
+      "Ability to work in tight spaces and on roofs",
+      "EPA 608 certification preferred",
+      "Valid AZ driver's license with clean record"
+    ]
+  },
+  {
+    title: "Customer Service Representative",
+    type: "Full-Time",
+    pay: "Hourly + Benefits",
+    desc: "You're the first voice a customer hears when they call D&H. Answer inbound service calls, schedule appointments, handle customer inquiries, and support the dispatch and field teams. Full-time with full benefits. Prior call center or service dispatch experience a plus.",
+    requirements: [
+      "Strong phone communication skills",
+      "Experience in a service or call center environment preferred",
+      "Calm under pressure — our busiest days are the hottest days",
+      "Proficiency with scheduling software (ServiceTitan a plus)",
+      "Tucson resident preferred"
+    ]
+  },
+  {
+    title: "Dispatcher",
+    type: "Full-Time",
+    pay: "Salary + Benefits",
+    desc: "Coordinate the D&H field team in real time. Route technicians efficiently, manage call priority, communicate with customers about ETAs, and keep the operation running smoothly when demand spikes. Fast-paced, high-responsibility, and critical to our mission. Rewarding work for the right person.",
+    requirements: [
+      "Prior dispatch or logistics experience required",
+      "ServiceTitan or similar dispatch software experience preferred",
+      "Ability to manage competing priorities under pressure",
+      "Excellent verbal communication",
+      "Problem-solving mindset — no two days are the same"
+    ]
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- ======= HERO ======= -->
+  <section class="bg-[var(--color-navy)] text-white py-20 md:py-28 relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" aria-hidden="true">
+      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.5" fill="white"/>
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#dots)" />
+      </svg>
+    </div>
+
+    <div class="container mx-auto px-4 text-center relative">
+      <div class="inline-block bg-[var(--color-orange)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
+        Now Hiring — Tucson, AZ
+      </div>
+      <h1 class="font-display font-800 text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
+        Work Where <span class="text-[var(--color-orange)]">Tucson Works</span>
+      </h1>
+      <p class="text-blue-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        Join the team that's been the backbone of Tucson's comfort for 65+ years.<br class="hidden md:block" />
+        Competitive pay. Real benefits. A career, not just a job.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="#open-positions"
+          class="inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          See Open Positions
+        </a>
+        <a
+          href="#apply"
+          class="inline-block border-2 border-white/30 hover:border-white text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
+        >
+          Apply Now
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= WHY D&H ======= -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+          Why People Build Careers at D&H
+        </h2>
+        <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+          We've been around 65+ years because we treat our people the same way we treat our customers — with respect, fairness, and follow-through.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {benefits.map(b => (
+          <div class="bg-[var(--color-cloud)] rounded-2xl p-6 border border-[var(--color-border)]">
+            <div class="w-12 h-12 rounded-full bg-[var(--color-navy)] flex items-center justify-center mb-5">
+              {b.icon === "dollar" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="1" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              )}
+              {b.icon === "heart" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              )}
+              {b.icon === "star" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              )}
+              {b.icon === "book" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              )}
+              {b.icon === "shield" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              )}
+              {b.icon === "clock" && (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              )}
+            </div>
+            <h3 class="font-display font-700 text-[var(--color-charcoal)] text-lg mb-3">{b.title}</h3>
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= OPEN POSITIONS ======= -->
+  <section id="open-positions" class="bg-[var(--color-cloud)] py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+          Open Positions
+        </h2>
+        <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+          We're growing. If you're good at what you do and you want to be part of something that lasts, keep reading.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-6">
+        {positions.map(pos => (
+          <div class="bg-white rounded-2xl p-6 md:p-8 border border-[var(--color-border)] shadow-sm">
+            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-5">
+              <div>
+                <h3 class="font-display font-800 text-[var(--color-charcoal)] text-xl mb-2">{pos.title}</h3>
+                <div class="flex flex-wrap gap-2">
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-cloud)] text-[var(--color-muted)] border border-[var(--color-border)]">{pos.type}</span>
+                  <span class="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-cloud)] text-[var(--color-muted)] border border-[var(--color-border)]">{pos.pay}</span>
+                </div>
+              </div>
+              <a
+                href="#apply"
+                class="shrink-0 inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold px-6 py-3 rounded-xl transition-colors text-sm"
+              >
+                Apply Now
+              </a>
+            </div>
+
+            <p class="text-[var(--color-muted)] text-sm leading-relaxed mb-5">{pos.desc}</p>
+
+            <div>
+              <p class="font-semibold text-[var(--color-charcoal)] text-sm mb-3">Requirements:</p>
+              <ul class="space-y-2">
+                {pos.requirements.map(req => (
+                  <li class="flex items-start gap-2.5 text-sm text-[var(--color-muted)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="shrink-0 mt-0.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    {req}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= CULTURE PHOTOS ======= -->
+  <section class="bg-white py-12">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <!-- PLACEHOLDER: Insert company culture photos — team photos, training facility, trucks, technicians on the job, etc. -->
+      <div class="bg-[var(--color-cloud)] rounded-2xl p-10 text-center border-2 border-dashed border-[var(--color-border)]">
+        <p class="text-[var(--color-muted)] text-sm">Company culture photos — team, training facility, field work. Replace with real images.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= APPLICATION FORM ======= -->
+  <section id="apply" class="bg-[var(--color-cloud)] py-16 md:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-10">
+          <h2 class="font-display font-800 text-3xl md:text-4xl text-[var(--color-charcoal)] mb-4">
+            Apply Now
+          </h2>
+          <p class="text-[var(--color-muted)] text-lg">
+            Fill out the form below and we'll be in touch within one business day.
+          </p>
+        </div>
+
+        <div class="bg-white rounded-2xl p-6 md:p-8 border border-[var(--color-border)] shadow-sm">
+          <form action="#" method="POST" enctype="multipart/form-data" class="space-y-5">
+
+            <div>
+              <label for="app-name" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Full Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="app-name"
+                name="name"
+                required
+                placeholder="John Smith"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <div>
+              <label for="app-phone" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Phone Number <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="app-phone"
+                name="phone"
+                required
+                placeholder="(520) 555-1234"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <div>
+              <label for="app-email" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="app-email"
+                name="email"
+                required
+                placeholder="john@example.com"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <div>
+              <label for="app-position" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Position Applying For <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="app-position"
+                name="position"
+                required
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              >
+                <option value="" disabled selected>Select a position...</option>
+                <option value="hvac-technician">HVAC Technician</option>
+                <option value="hvac-installer">HVAC Installer</option>
+                <option value="customer-service-rep">Customer Service Representative</option>
+                <option value="dispatcher">Dispatcher</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="app-experience" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Years of Experience
+              </label>
+              <select
+                id="app-experience"
+                name="years_experience"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              >
+                <option value="" disabled selected>Select years of experience...</option>
+                <option value="0-1">Less than 1 year</option>
+                <option value="1-3">1–3 years</option>
+                <option value="3-5">3–5 years</option>
+                <option value="5-10">5–10 years</option>
+                <option value="10+">10+ years</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="app-resume" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Resume <span class="text-[var(--color-muted)] font-normal">(PDF or Word)</span>
+              </label>
+              <!-- PLACEHOLDER: Link this file input to the actual application processing system before launch -->
+              <input
+                type="file"
+                id="app-resume"
+                name="resume"
+                accept=".pdf,.doc,.docx"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] bg-white file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-[var(--color-cloud)] file:text-[var(--color-charcoal)] hover:file:bg-[var(--color-border)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] transition"
+              />
+            </div>
+
+            <div>
+              <label for="app-message" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Tell Us About Yourself
+              </label>
+              <textarea
+                id="app-message"
+                name="message"
+                rows="4"
+                placeholder="What's your background? What are you looking for? Anything you want us to know before we call?"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition resize-y"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base py-4 rounded-xl transition-colors"
+            >
+              Submit Application
+            </button>
+          </form>
+        </div>
+
+        <p class="text-center text-[var(--color-muted)] text-sm mt-6">
+          Questions? Call us at <a href="tel:5204082665" class="text-[var(--color-navy)] font-semibold hover:underline">(520) 408-2665</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

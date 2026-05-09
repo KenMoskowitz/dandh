@@ -1,0 +1,323 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Contact D&H Air Conditioning | Schedule Service in Tucson, AZ";
+const description = "Contact D&H Air Conditioning in Tucson, AZ. Same-day appointments available. Schedule AC repair, installation, maintenance, heating, or plumbing service online or by phone.";
+const canonical = "https://dandhac.com/contact";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "D&H Air Conditioning & Heating & Plumbing",
+  "url": "https://dandhac.com",
+  "telephone": "(520) 408-2665",
+  "foundingDate": "1959",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3990 S Evans Blvd",
+    "addressLocality": "Tucson",
+    "addressRegion": "AZ",
+    "postalCode": "85714",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 32.1706,
+    "longitude": -110.9563
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "4000"
+  },
+  "hasMap": "https://maps.google.com/?q=D%26H+Air+Conditioning+3990+S+Evans+Blvd+Tucson+AZ",
+  "areaServed": [
+    "Tucson","Oro Valley","Marana","Casas Adobes","Catalina Foothills",
+    "Green Valley","Saddlebrooke","Sahuarita","Vail","Catalina"
+  ]
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={localBusinessSchema}>
+
+  <!-- ======= HERO ======= -->
+  <section class="bg-[var(--color-cloud)] py-16 md:py-20">
+    <div class="container mx-auto px-4 text-center">
+      <div class="inline-flex items-center gap-2 bg-[var(--color-success)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same-Day Appointments Available
+      </div>
+      <h1 class="font-display font-800 text-4xl md:text-5xl text-[var(--color-charcoal)] mb-5">
+        Schedule Service or Get a Free Estimate
+      </h1>
+      <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+        Same-day appointments available. We answer every call — 24 hours a day, 365 days a year.
+      </p>
+    </div>
+  </section>
+
+  <!-- Team photo strip -->
+  <!-- PLACEHOLDER: Replace with real D&H team photo, dispatch center, or truck fleet photography -->
+  <div class="relative h-56 md:h-72 overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1400&q=80"
+      alt="The D&H Air Conditioning team — Tucson's most trusted HVAC professionals since 1959"
+      width="1400" height="500"
+      loading="eager"
+      class="w-full h-full object-cover object-center"
+    />
+    <div class="absolute inset-0 bg-[var(--color-navy)]/60 flex items-center justify-center">
+      <div class="text-center text-white px-4">
+        <p class="font-display font-extrabold text-2xl md:text-3xl mb-2">Tucson's Team Since 1959</p>
+        <p class="text-blue-200 text-base">NATE-certified · Background-checked · On time, every time</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======= FORM + BOOKING EMBED ======= -->
+  <section class="bg-white py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="grid lg:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+        <!-- LEFT: Contact Form -->
+        <div>
+          <h2 class="font-display font-700 text-2xl text-[var(--color-charcoal)] mb-2">Send Us a Message</h2>
+          <p class="text-[var(--color-muted)] text-sm mb-6">We respond within 1 business hour during normal hours. For emergencies, call us directly at <a href="tel:5206643699" class="text-[var(--color-navy)] font-semibold hover:underline">(520) 664-3699</a>.</p>
+
+          <form
+            action="#"
+            method="POST"
+            class="space-y-5"
+          >
+            <!-- Name -->
+            <div>
+              <label for="name" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Your Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                placeholder="John Smith"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <!-- Phone -->
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Phone Number <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="(520) 555-1234"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="email" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="john@example.com"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              />
+            </div>
+
+            <!-- Service Needed -->
+            <div>
+              <label for="service" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Service Needed <span class="text-red-500">*</span>
+              </label>
+              <select
+                id="service"
+                name="service"
+                required
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              >
+                <option value="" disabled selected>Select a service...</option>
+                <option value="ac-repair">AC Repair</option>
+                <option value="emergency-ac-repair">Emergency AC Repair</option>
+                <option value="ac-installation">AC Installation</option>
+                <option value="ac-maintenance">AC Maintenance / Tune-Up</option>
+                <option value="heating-repair">Heating Repair</option>
+                <option value="furnace-repair">Furnace Repair</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <!-- Preferred Time -->
+            <div>
+              <label for="time" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Preferred Time
+              </label>
+              <select
+                id="time"
+                name="preferred_time"
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition"
+              >
+                <option value="" disabled selected>Select preferred time...</option>
+                <option value="morning">Morning 8am–12pm</option>
+                <option value="afternoon">Afternoon 12pm–5pm</option>
+                <option value="evening">Evening 5pm–8pm</option>
+                <option value="any">Any time works</option>
+              </select>
+            </div>
+
+            <!-- Message -->
+            <div>
+              <label for="message" class="block text-sm font-semibold text-[var(--color-charcoal)] mb-1.5">
+                Message <span class="text-[var(--color-muted)] font-normal">(optional)</span>
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                placeholder="Tell us about your system, what's happening, or any details that might help our technician prepare."
+                class="w-full border border-[var(--color-border)] rounded-xl px-4 py-3 text-sm text-[var(--color-charcoal)] placeholder-[var(--color-muted)] focus:outline-none focus:ring-2 focus:ring-[var(--color-sky)] focus:border-transparent transition resize-y"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base py-4 rounded-xl transition-colors"
+            >
+              Send Message
+            </button>
+
+            <p class="text-xs text-[var(--color-muted)] text-center">
+              We respond within 1 business hour during normal hours. For immediate assistance, call <a href="tel:5204082665" class="underline">(520) 408-2665</a>.
+            </p>
+          </form>
+        </div>
+
+        <!-- RIGHT: ServiceTitan Online Booking -->
+        <div>
+          <h2 class="font-display font-700 text-2xl text-[var(--color-charcoal)] mb-2">Book Online Instantly</h2>
+          <p class="text-[var(--color-muted)] text-sm mb-6">
+            Prefer to schedule directly? Use our online booking tool to choose your service, pick a time, and confirm your appointment — no phone call required.
+          </p>
+
+          <!-- PLACEHOLDER: Confirm ServiceTitan tenant ID before launch. Current tenantid=352742287 -->
+          <div class="rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-sm">
+            <iframe
+              src="https://go.servicetitan.com/webscheduler?tenantid=352742287"
+              width="100%"
+              height="600"
+              frameborder="0"
+              title="D&H Air Conditioning Online Scheduling"
+              loading="lazy"
+              class="block"
+            ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= LOCATION CARDS ======= -->
+  <section class="bg-[var(--color-cloud)] py-16 md:py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-10">
+        <h2 class="font-display font-800 text-2xl md:text-3xl text-[var(--color-charcoal)] mb-3">
+          Find Us or Call Us
+        </h2>
+        <p class="text-[var(--color-muted)]">Two convenient Tucson locations. One phone number. Always answered.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+        <!-- Main Office -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--color-border)] shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-navy)] flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-[var(--color-charcoal)] text-lg mb-2">Main Office — South Tucson</h3>
+          <address class="not-italic text-[var(--color-muted)] text-sm mb-4 leading-relaxed">
+            3990 S Evans Blvd<br />
+            Tucson, AZ 85714
+          </address>
+          <a
+            href="tel:5204082665"
+            class="flex items-center gap-2 text-[var(--color-navy)] font-bold text-sm hover:underline"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (520) 408-2665
+          </a>
+        </div>
+
+        <!-- North Location -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--color-border)] shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-sky)] flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-[var(--color-charcoal)] text-lg mb-2">North Tucson Location</h3>
+          <address class="not-italic text-[var(--color-muted)] text-sm mb-4 leading-relaxed">
+            7070 N Oracle Rd<br />
+            Tucson, AZ 85704
+          </address>
+          <a
+            href="tel:5204082665"
+            class="flex items-center gap-2 text-[var(--color-navy)] font-bold text-sm hover:underline"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            (520) 408-2665
+          </a>
+        </div>
+
+        <!-- Hours -->
+        <div class="bg-white rounded-2xl p-6 border border-[var(--color-border)] shadow-sm">
+          <div class="w-10 h-10 rounded-full bg-[var(--color-orange)] flex items-center justify-center mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3 class="font-display font-700 text-[var(--color-charcoal)] text-lg mb-2">Hours of Operation</h3>
+          <div class="text-[var(--color-muted)] text-sm mb-4 space-y-1">
+            <div class="flex justify-between">
+              <span>Monday – Sunday</span>
+              <span class="font-semibold text-[var(--color-charcoal)]">24 / 7</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Holidays</span>
+              <span class="font-semibold text-[var(--color-charcoal)]">Open</span>
+            </div>
+            <div class="flex justify-between">
+              <span>Emergency calls</span>
+              <span class="font-semibold text-[var(--color-charcoal)]">Always</span>
+            </div>
+          </div>
+          <a
+            href="tel:5206643699"
+            class="flex items-center gap-2 text-red-600 font-bold text-sm hover:underline"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Emergency: (520) 664-3699
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= LICENSE NUMBERS ======= -->
+  <section class="bg-white py-8 border-t border-[var(--color-border)]">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-[var(--color-muted)] text-xs">
+        D&H Air Conditioning & Heating & Plumbing &mdash; Licensed, Bonded &amp; Insured &mdash; Arizona ROC License #&nbsp;PLACEHOLDER &mdash; Serving Tucson, AZ &amp; the Greater Metro Area Since 1959
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>

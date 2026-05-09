@@ -1,0 +1,236 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+
+const title = "Customer Reviews | D&H Air Conditioning Tucson | 4.8★ Google Rating";
+const description = "Read what 4,000+ Tucson homeowners say about D&H Air Conditioning. 4.8 stars on Google. AC repair, installation, heating, and plumbing — we do it all, and we do it right.";
+const canonical = "https://dandhac.com/reviews";
+
+// PLACEHOLDER: Replace these with real Google review content via API or manual entry.
+// Pull live reviews from the Google Business Profile or embed the Google Reviews widget.
+const reviews = [
+  {
+    name: "Sandra M.",
+    service: "AC Repair",
+    quote: "AC was fixed same day. Jacob was incredible — professional and fast. Tucson heat is no joke and they came through.",
+    rating: 5,
+  },
+  {
+    name: "Robert T.",
+    service: "Installation",
+    quote: "Best HVAC company in Tucson. Been using D&H for 15 years. New system installed perfectly.",
+    rating: 5,
+  },
+  {
+    name: "Maria G.",
+    service: "AC Repair",
+    quote: "They showed up at 10pm on a Sunday. Truly 24/7 service. Couldn't be happier.",
+    rating: 5,
+  },
+  {
+    name: "James K.",
+    service: "Heating",
+    quote: "Fair pricing, no upselling. The tech explained everything clearly and fixed the furnace in under an hour.",
+    rating: 5,
+  },
+  {
+    name: "Linda P.",
+    service: "Installation",
+    quote: "New unit installed in one day. Crew was clean and professional. Love the new system.",
+    rating: 5,
+  },
+  {
+    name: "David R.",
+    service: "AC Repair",
+    quote: "Emergency call handled within 2 hours. AC running perfectly now. Would not hesitate to recommend.",
+    rating: 5,
+  },
+  {
+    name: "Carla F.",
+    service: "Plumbing",
+    quote: "Family-run business that still cares. Used them for HVAC for years — now plumbing too. Never disappointed.",
+    rating: 5,
+  },
+  {
+    name: "Tom W.",
+    service: "Maintenance",
+    quote: "On time, on budget. The Family Plan saved us $400 last year. Worth every penny — sign up if you haven't.",
+    rating: 5,
+  },
+  {
+    name: "Amy S.",
+    service: "Installation",
+    quote: "Brett and his team are the best. Honest, professional, and the new Daikin system is amazing. Our bills dropped immediately.",
+    rating: 5,
+  },
+];
+
+const serviceTypes = ["All", "AC Repair", "Installation", "Heating", "Plumbing", "Maintenance"];
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HVACBusiness",
+  "name": "D&H Air Conditioning & Heating & Plumbing",
+  "url": "https://dandhac.com",
+  "telephone": "(520) 408-2665",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "4000",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+---
+
+<BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
+
+  <!-- ======= HERO ======= -->
+  <section class="bg-white py-16 md:py-24 border-b border-[var(--color-border)]">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="font-display font-800 text-4xl md:text-5xl text-[var(--color-charcoal)] mb-6">
+        What Tucson Says About D&H
+      </h1>
+
+      <!-- Star display -->
+      <div class="flex flex-col items-center gap-3 mb-6">
+        <div class="flex text-yellow-400 gap-1">
+          {Array(5).fill(null).map(() => (
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          ))}
+        </div>
+        <div class="flex flex-col items-center">
+          <p class="font-display font-800 text-5xl text-[var(--color-charcoal)]">4.8</p>
+          <p class="text-[var(--color-muted)] text-base mt-1">out of 5 &mdash; 4,000+ Google Reviews</p>
+        </div>
+      </div>
+
+      <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+        Over 4,000 Tucson homeowners have shared their experience with D&H. Here's what they said.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======= REVIEWS WITH FILTER ======= -->
+  <section
+    class="bg-[var(--color-cloud)] py-16 md:py-24"
+    x-data="{
+      activeFilter: 'All',
+      reviews: [
+        { name: 'Sandra M.', service: 'AC Repair', quote: 'AC was fixed same day. Jacob was incredible — professional and fast. Tucson heat is no joke and they came through.', rating: 5 },
+        { name: 'Robert T.', service: 'Installation', quote: 'Best HVAC company in Tucson. Been using D&H for 15 years. New system installed perfectly.', rating: 5 },
+        { name: 'Maria G.', service: 'AC Repair', quote: 'They showed up at 10pm on a Sunday. Truly 24/7 service. Couldn\'t be happier.', rating: 5 },
+        { name: 'James K.', service: 'Heating', quote: 'Fair pricing, no upselling. The tech explained everything clearly and fixed the furnace in under an hour.', rating: 5 },
+        { name: 'Linda P.', service: 'Installation', quote: 'New unit installed in one day. Crew was clean and professional. Love the new system.', rating: 5 },
+        { name: 'David R.', service: 'AC Repair', quote: 'Emergency call handled within 2 hours. AC running perfectly now. Would not hesitate to recommend.', rating: 5 },
+        { name: 'Carla F.', service: 'Plumbing', quote: 'Family-run business that still cares. Used them for HVAC for years — now plumbing too. Never disappointed.', rating: 5 },
+        { name: 'Tom W.', service: 'Maintenance', quote: 'On time, on budget. The Family Plan saved us $400 last year. Worth every penny — sign up if you haven\'t.', rating: 5 },
+        { name: 'Amy S.', service: 'Installation', quote: 'Brett and his team are the best. Honest, professional, and the new Daikin system is amazing. Our bills dropped immediately.', rating: 5 },
+      ],
+      get filtered() {
+        if (this.activeFilter === 'All') return this.reviews;
+        return this.reviews.filter(r => r.service === this.activeFilter);
+      }
+    }"
+  >
+    <div class="container mx-auto px-4">
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-2 justify-center mb-10">
+        {serviceTypes.map(type => (
+          <button
+            @click={`activeFilter = '${type}'`}
+            :class={`activeFilter === '${type}' ? 'bg-[var(--color-navy)] text-white' : 'bg-white text-[var(--color-muted)] hover:bg-[var(--color-border)]'`}
+            class="px-5 py-2.5 rounded-full text-sm font-semibold transition-colors border border-[var(--color-border)]"
+          >
+            {type}
+          </button>
+        ))}
+      </div>
+
+      <!-- Reviews grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <template x-for="(review, index) in filtered" :key="index">
+          <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)] flex flex-col gap-4">
+            <!-- Stars -->
+            <div class="flex text-yellow-400 gap-0.5">
+              <template x-for="i in review.rating" :key="i">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </template>
+            </div>
+
+            <!-- Quote -->
+            <p class="text-[var(--color-charcoal)] text-sm leading-relaxed flex-1" x-text="`&quot;${review.quote}&quot;`"></p>
+
+            <!-- Footer -->
+            <div class="flex items-center justify-between pt-4 border-t border-[var(--color-border)]">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-[var(--color-navy)] flex items-center justify-center text-white font-bold text-sm" x-text="review.name.charAt(0)"></div>
+                <div>
+                  <p class="font-semibold text-[var(--color-charcoal)] text-sm" x-text="review.name"></p>
+                  <span
+                    class="text-xs px-2 py-0.5 rounded-full bg-[var(--color-cloud)] text-[var(--color-muted)] font-medium"
+                    x-text="review.service"
+                  ></span>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5 text-xs text-[var(--color-muted)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                Google Review
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+
+      <!-- No results message -->
+      <div x-show="filtered.length === 0" class="text-center py-12">
+        <p class="text-[var(--color-muted)]">No reviews found for this filter. Try "All" to see everything.</p>
+      </div>
+
+      <!-- Google button -->
+      <div class="text-center mt-12">
+        <!-- PLACEHOLDER: Replace href with the D&H Google Maps listing URL -->
+        <a
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-3 bg-white border-2 border-[var(--color-border)] hover:border-[var(--color-navy)] text-[var(--color-charcoal)] font-bold px-8 py-4 rounded-xl transition-colors"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
+          See All 4,000+ Reviews on Google
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======= TRUST BADGES ======= -->
+  <TrustBadges />
+
+  <!-- ======= FINAL CTA ======= -->
+  <section class="bg-[var(--color-navy)] py-16 md:py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="font-display font-800 text-3xl md:text-4xl text-white mb-4">
+        Ready to Experience the D&H Difference?
+      </h2>
+      <p class="text-blue-200 text-lg max-w-xl mx-auto mb-8">
+        Join thousands of Tucson families who trust D&H for every HVAC need. Schedule service today.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors"
+        >
+          Schedule Service
+        </a>
+        <a
+          href="tel:5204082665"
+          class="inline-block border-2 border-white/30 hover:border-white text-white font-bold text-lg px-10 py-4 rounded-xl transition-colors"
+        >
+          (520) 408-2665
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
