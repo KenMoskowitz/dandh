@@ -1,0 +1,510 @@
+---
+// Design Option B: "Precision Dark"
+// Bold, high-contrast, modern industrial — premium tech company feel
+// Palette: near-black, electric blue, pure white, orange accent
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Design Option B: Precision Dark | D&H";
+const description = "Design concept B for DandHac.com";
+---
+
+<BaseLayout title={title} description={description}>
+<style>
+  :root {
+    --pd-black:      #080C10;
+    --pd-surface:    #0F1419;
+    --pd-card:       #141B24;
+    --pd-card2:      #1A2330;
+    --pd-blue:       #0EA5E9;
+    --pd-blue-glow:  rgba(14,165,233,0.25);
+    --pd-blue-dim:   rgba(14,165,233,0.08);
+    --pd-orange:     #F97316;
+    --pd-orange-dim: rgba(249,115,22,0.12);
+    --pd-white:      #FFFFFF;
+    --pd-off-white:  #E2EBF5;
+    --pd-muted:      #64748B;
+    --pd-border:     rgba(255,255,255,0.07);
+    --pd-border2:    rgba(14,165,233,0.2);
+  }
+
+  /* Electric grid background */
+  .pd-grid-bg {
+    background-image:
+      linear-gradient(rgba(14,165,233,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14,165,233,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Blue glow orb */
+  .pd-glow-blue {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+  }
+
+  /* Card styles */
+  .pd-card {
+    background: var(--pd-card);
+    border: 1px solid var(--pd-border);
+    border-radius: 16px;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+  }
+  .pd-card:hover {
+    border-color: var(--pd-border2);
+    box-shadow: 0 0 40px var(--pd-blue-glow), 0 16px 48px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+  }
+
+  /* Blue accent line on card */
+  .pd-card-accent {
+    border-top: 2px solid var(--pd-blue);
+  }
+
+  /* Stat cards */
+  .pd-stat {
+    background: var(--pd-card);
+    border: 1px solid var(--pd-border);
+    border-radius: 12px;
+    padding: 28px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .pd-stat::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--pd-blue), transparent);
+  }
+
+  /* Button primary (blue) */
+  .pd-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pd-blue);
+    color: var(--pd-black);
+    font-weight: 800;
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 0 24px rgba(14,165,233,0.4);
+  }
+  .pd-btn-primary:hover {
+    box-shadow: 0 0 40px rgba(14,165,233,0.6);
+    transform: translateY(-1px);
+  }
+
+  /* Button secondary (orange) */
+  .pd-btn-orange {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--pd-orange);
+    color: white;
+    font-weight: 800;
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: box-shadow 0.2s;
+    box-shadow: 0 0 24px rgba(249,115,22,0.3);
+  }
+  .pd-btn-orange:hover {
+    box-shadow: 0 0 40px rgba(249,115,22,0.5);
+  }
+
+  /* Ghost button */
+  .pd-btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: transparent;
+    color: var(--pd-off-white);
+    border: 1px solid rgba(255,255,255,0.15);
+    font-weight: 700;
+    font-size: 0.9375rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .pd-btn-ghost:hover {
+    border-color: rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* Section heading accent */
+  .pd-section-tag {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pd-blue);
+    margin-bottom: 10px;
+  }
+
+  /* Bottom label */
+  .design-label {
+    position: fixed;
+    bottom: 16px;
+    left: 16px;
+    background: var(--pd-blue);
+    color: var(--pd-black);
+    font-size: 11px;
+    font-weight: 800;
+    padding: 6px 12px;
+    border-radius: 6px;
+    z-index: 9999;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  /* Noise texture overlay */
+  .pd-noise::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+    pointer-events: none;
+    mix-blend-mode: screen;
+    opacity: 0.3;
+  }
+
+  /* Number accent large */
+  .pd-year-watermark {
+    position: absolute;
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(180px, 20vw, 320px);
+    color: rgba(14,165,233,0.03);
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+  }
+
+  /* Icon wrapper */
+  .pd-icon-wrap {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--pd-blue-dim);
+    border: 1px solid var(--pd-border2);
+    color: var(--pd-blue);
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .pd-icon-wrap.orange {
+    background: var(--pd-orange-dim);
+    border-color: rgba(249,115,22,0.2);
+    color: var(--pd-orange);
+  }
+
+  /* Horizontal number stat */
+  .pd-inline-stat {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--pd-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .pd-inline-stat:last-child { border-bottom: none; }
+</style>
+
+<div class="design-label">Option B — Precision Dark</div>
+
+<!-- ── NAV ──────────────────────────────────────────────────────── -->
+<header style="background:rgba(8,12,16,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--pd-border); position:sticky; top:0; z-index:100;">
+  <div style="max-width:1280px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; justify-content:space-between;">
+    <!-- Logo -->
+    <div style="display:flex; align-items:center; gap:10px;">
+      <div style="width:34px; height:34px; background:var(--pd-blue); border-radius:8px; display:flex; align-items:center; justify-content:center; color:var(--pd-black); font-weight:900; font-size:12px; font-family:var(--font-display); letter-spacing:-0.03em;">D&H</div>
+      <span style="font-family:var(--font-display); font-weight:800; font-size:0.9375rem; color:var(--pd-white); letter-spacing:-0.02em;">D&amp;H Air Conditioning</span>
+    </div>
+    <!-- Nav -->
+    <nav style="display:flex; align-items:center; gap:24px;">
+      {['Cooling', 'Heating', 'Plumbing', 'Specials', 'About'].map(n => (
+        <span style="font-size:0.8125rem; font-weight:600; color:var(--pd-muted); cursor:pointer; letter-spacing:0.01em;">{n}</span>
+      ))}
+      <div style="width:1px; height:20px; background:var(--pd-border);"></div>
+      <a href="tel:5204082665" class="pd-btn-primary" style="padding:8px 16px; font-size:0.8125rem; border-radius:8px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        (520) 408-2665
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── HERO ─────────────────────────────────────────────────────── -->
+<section style="background:var(--pd-black); position:relative; overflow:hidden; min-height:600px;" class="pd-grid-bg pd-noise">
+  <!-- Glow orbs -->
+  <div class="pd-glow-blue" style="width:600px; height:600px; background:rgba(14,165,233,0.12); top:-100px; right:-100px;"></div>
+  <div class="pd-glow-blue" style="width:400px; height:400px; background:rgba(249,115,22,0.07); bottom:-50px; left:-100px;"></div>
+
+  <div style="max-width:1280px; margin:0 auto; padding:100px 24px 110px; display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; position:relative;">
+
+    <!-- Left -->
+    <div>
+      <!-- Status chip -->
+      <div style="display:inline-flex; align-items:center; gap:8px; background:var(--pd-blue-dim); border:1px solid var(--pd-border2); color:var(--pd-blue); font-size:0.7rem; font-weight:700; padding:6px 14px; border-radius:99px; margin-bottom:28px; letter-spacing:0.08em; text-transform:uppercase;">
+        <span style="width:6px; height:6px; background:var(--pd-blue); border-radius:50%;"></span>
+        Tucson's #1 Rated · Since 1959
+      </div>
+
+      <h1 style="font-family:var(--font-display); font-weight:900; font-size:clamp(3rem,5.5vw,5rem); line-height:0.95; color:var(--pd-white); letter-spacing:-0.04em; margin-bottom:24px;">
+        HVAC<br/>
+        <span style="color:var(--pd-blue);">Precision.</span><br/>
+        <span style="color:var(--pd-off-white); font-size:0.7em; font-weight:700; letter-spacing:-0.03em;">Tucson-Trusted Since 1959.</span>
+      </h1>
+
+      <p style="color:var(--pd-muted); font-size:1.0625rem; line-height:1.7; margin-bottom:36px; max-width:440px;">
+        NATE-certified technicians. Same-day scheduling. 24/7 emergency response. No surprises on the bill.
+      </p>
+
+      <div style="display:flex; gap:12px; margin-bottom:40px; flex-wrap:wrap;">
+        <a href="/contact" class="pd-btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="4" rx="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+          Schedule Service
+        </a>
+        <a href="tel:5204082665" class="pd-btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Call Now
+        </a>
+      </div>
+
+      <!-- Credential row -->
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        {['NATE Certified', 'BBB A+', 'Family-Owned', '24/7 Emergency'].map(b => (
+          <span style="display:inline-flex; align-items:center; gap:5px; background:rgba(255,255,255,0.05); border:1px solid var(--pd-border); color:var(--pd-muted); font-size:0.75rem; font-weight:600; padding:5px 11px; border-radius:6px;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--pd-blue)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            {b}
+          </span>
+        ))}
+      </div>
+    </div>
+
+    <!-- Right: photo + stats card -->
+    <div style="display:flex; flex-direction:column; gap:16px;">
+      <!-- Photo with glowing border -->
+      <div style="border-radius:20px; overflow:hidden; position:relative; aspect-ratio:16/10; border:1px solid var(--pd-border2); box-shadow:0 0 60px rgba(14,165,233,0.15), 0 24px 64px rgba(0,0,0,0.5);">
+        <img
+          src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=80"
+          alt="D&H technician"
+          style="width:100%; height:100%; object-fit:cover; filter:brightness(0.85) saturate(0.9);"
+        />
+        <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(8,12,16,0.8) 0%, rgba(8,12,16,0.2) 50%, transparent 100%);"></div>
+        <!-- Overlay badge -->
+        <div style="position:absolute; bottom:16px; left:16px; right:16px; display:flex; align-items:flex-end; justify-content:space-between;">
+          <div>
+            <div style="display:flex; gap:2px; margin-bottom:4px;">
+              {Array(5).fill(null).map(() => <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+            </div>
+            <p style="color:white; font-size:0.8125rem; font-weight:700;">4.8 Stars · 4,000+ Reviews</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px; background:rgba(14,165,233,0.9); color:white; font-size:0.7rem; font-weight:700; padding:6px 12px; border-radius:99px; text-transform:uppercase; letter-spacing:0.05em;">
+            <span style="width:5px; height:5px; background:white; border-radius:50%;"></span>
+            Live · Available Now
+          </div>
+        </div>
+      </div>
+
+      <!-- 3-column mini stats -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:10px;">
+        {[
+          { n: '65+', l: 'Years', s: 'In Business' },
+          { n: '24/7', l: 'Response', s: 'Emergency' },
+          { n: 'NATE', l: 'Certified', s: 'All Techs' },
+        ].map(s => (
+          <div style="background:var(--pd-card); border:1px solid var(--pd-border); border-radius:12px; padding:16px; text-align:center; position:relative; overflow:hidden;">
+            <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, var(--pd-blue), transparent);"></div>
+            <p style="font-family:var(--font-display); font-weight:800; font-size:1.5rem; color:var(--pd-blue); line-height:1; margin-bottom:3px;">{s.n}</p>
+            <p style="font-size:0.75rem; color:var(--pd-off-white); font-weight:600;">{s.l}</p>
+            <p style="font-size:0.6875rem; color:var(--pd-muted);">{s.s}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SERVICES ──────────────────────────────────────────────────── -->
+<section style="background:var(--pd-surface); padding:80px 24px; position:relative; overflow:hidden;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="margin-bottom:48px;">
+      <p class="pd-section-tag">Full-Service HVAC &amp; Plumbing</p>
+      <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px;">
+        <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(2rem,4vw,3.25rem); color:var(--pd-white); letter-spacing:-0.04em; line-height:1;">What do you need<br/><span style="color:var(--pd-blue);">today?</span></h2>
+        <p style="color:var(--pd-muted); font-size:0.9375rem; max-width:360px; line-height:1.6;">Whatever's broken or whatever you want to prevent — we cover it all.</p>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      {[
+        { title: 'AC Repair', desc: 'Fast diagnosis and same-day repair on all makes and models.', href: '/air-conditioning-repair', urgent: false, tag: null },
+        { title: 'Emergency AC', desc: 'Trucks on the road 24/7. Nights, weekends, holidays — we respond.', href: '/emergency-ac-repair', urgent: true, tag: '24/7' },
+        { title: 'AC Installation', desc: 'Right-sized systems, expert install, 0% financing. Permits to startup.', href: '/ac-installation', urgent: false, tag: null },
+        { title: 'Heating & Furnace', desc: 'Gas furnace repair, heat pump service, and complete heating install.', href: '/heating', urgent: false, tag: null },
+        { title: 'Plumbing', desc: 'Same D&H trust for your pipes. Water heaters, leaks, drains.', href: '/plumbing', urgent: false, tag: null },
+        { title: 'Family Plan', desc: 'Two tune-ups/year, priority dispatch, 10% off, no emergency surcharges.', href: '/family-maintenance-plan', urgent: false, tag: 'Best Value' },
+      ].map(s => (
+        <a href={s.href} style={`display:block; text-decoration:none; background:var(--pd-card); border:1px solid ${s.urgent ? 'rgba(249,115,22,0.3)' : 'var(--pd-border)'}; border-radius:16px; padding:28px 24px; position:relative; transition:border-color 0.2s, box-shadow 0.2s, transform 0.2s;`}>
+          {s.tag && (
+            <span style={`position:absolute; top:16px; right:16px; font-size:0.6875rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:4px 10px; border-radius:6px; background:${s.urgent ? 'rgba(249,115,22,0.15)' : 'rgba(14,165,233,0.12)'}; color:${s.urgent ? 'var(--pd-orange)' : 'var(--pd-blue)'}; border:1px solid ${s.urgent ? 'rgba(249,115,22,0.3)' : 'var(--pd-border2)'};`}>{s.tag}</span>
+          )}
+          <!-- Top accent line -->
+          <div style={`position:absolute; top:0; left:0; right:0; height:2px; border-radius:16px 16px 0 0; background:${s.urgent ? 'var(--pd-orange)' : 'var(--pd-blue)'};`}></div>
+
+          <div style={`width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; margin-bottom:14px; background:${s.urgent ? 'var(--pd-orange-dim)' : 'var(--pd-blue-dim)'}; border:1px solid ${s.urgent ? 'rgba(249,115,22,0.2)' : 'var(--pd-border2)'}; color:${s.urgent ? 'var(--pd-orange)' : 'var(--pd-blue)'};`}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+          </div>
+          <p style="font-family:var(--font-display); font-weight:700; font-size:1rem; color:var(--pd-white); margin-bottom:8px;">{s.title}</p>
+          <p style="font-size:0.875rem; color:var(--pd-muted); line-height:1.6; margin-bottom:18px;">{s.desc}</p>
+          <span style={`font-size:0.8125rem; font-weight:700; color:${s.urgent ? 'var(--pd-orange)' : 'var(--pd-blue)'}; display:inline-flex; align-items:center; gap:4px;`}>
+            Learn more →
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── STATS + STORY ──────────────────────────────────────────────── -->
+<section style="background:var(--pd-black); padding:80px 24px; position:relative; overflow:hidden;" class="pd-grid-bg">
+  <div class="pd-year-watermark" style="right:-40px; top:50%; transform:translateY(-50%);">1959</div>
+  <div class="pd-glow-blue" style="width:500px; height:500px; background:rgba(14,165,233,0.08); top:50%; left:50%; transform:translate(-50%,-50%);"></div>
+
+  <div style="max-width:1280px; margin:0 auto; position:relative;">
+    <!-- Stats row -->
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:64px;">
+      {[
+        { n: '65+', l: 'Years Serving Tucson', s: 'Since 1959' },
+        { n: '4.8★', l: 'Google Rating', s: '4,000+ reviews' },
+        { n: 'NATE', l: 'Certified Techs', s: 'Industry gold standard' },
+        { n: '24/7', l: 'Emergency Service', s: '365 days a year' },
+      ].map(s => (
+        <div style="background:var(--pd-card); border:1px solid var(--pd-border); border-radius:14px; padding:28px 20px; text-align:center; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, var(--pd-blue), transparent);"></div>
+          <p style="font-family:var(--font-display); font-weight:900; font-size:2.5rem; color:var(--pd-blue); letter-spacing:-0.03em; line-height:1; margin-bottom:8px;">{s.n}</p>
+          <p style="font-size:0.875rem; color:var(--pd-off-white); font-weight:600; margin-bottom:3px;">{s.l}</p>
+          <p style="font-size:0.75rem; color:var(--pd-muted);">{s.s}</p>
+        </div>
+      ))}
+    </div>
+
+    <!-- Story: split layout -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center;">
+      <div>
+        <p class="pd-section-tag">Our Heritage</p>
+        <h2 style="font-family:var(--font-display); font-weight:900; font-size:2.75rem; color:var(--pd-white); letter-spacing:-0.04em; line-height:1.05; margin-bottom:20px;">The Family<br/><span style="color:var(--pd-blue);">Behind</span> the Brand</h2>
+        <p style="color:var(--pd-muted); font-size:1rem; line-height:1.75; margin-bottom:28px;">
+          D&H was founded in January 1959 by <strong style="color:var(--pd-off-white);">Arthur Duhamel</strong> and <strong style="color:var(--pd-off-white);">Harry Hawk</strong>.
+          Today, Arthur's grandson <strong style="color:var(--pd-off-white);">Brett Wright</strong> leads the team, carrying forward 65 years of family commitment to every home in Tucson.
+        </p>
+        <a href="/about" style="display:inline-flex; align-items:center; gap:8px; color:var(--pd-blue); font-weight:700; text-decoration:none; font-size:0.9375rem;">
+          Read our full story →
+        </a>
+      </div>
+
+      <!-- Right: vertical stat list -->
+      <div style="background:var(--pd-card); border:1px solid var(--pd-border); border-radius:16px; padding:32px;">
+        <p style="font-size:0.6875rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--pd-muted); margin-bottom:20px;">Why Tucson Chooses D&H</p>
+        {[
+          { label: 'NATE-Certified technicians on every call', icon: '✓' },
+          { label: 'Same-day service in most cases', icon: '✓' },
+          { label: '0% financing on new systems', icon: '✓' },
+          { label: 'No after-hours surcharges (Family Plan)', icon: '✓' },
+          { label: 'Licensed, insured, AZ ROC registered', icon: '✓' },
+        ].map(item => (
+          <div class="pd-inline-stat">
+            <span style="color:var(--pd-off-white); font-size:0.9rem;">{item.label}</span>
+            <span style="color:var(--pd-blue); font-weight:700; font-size:1rem;">{item.icon}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── REVIEWS ───────────────────────────────────────────────────── -->
+<section style="background:var(--pd-surface); padding:80px 24px;">
+  <div style="max-width:1280px; margin:0 auto;">
+    <div style="text-align:center; margin-bottom:48px;">
+      <p class="pd-section-tag">Social Proof</p>
+      <h2 style="font-family:var(--font-display); font-weight:900; font-size:2.75rem; color:var(--pd-white); letter-spacing:-0.04em; margin-bottom:12px;">What Tucson homeowners <span style="color:var(--pd-blue);">say</span></h2>
+      <div style="display:flex; align-items:center; justify-content:center; gap:6px;">
+        <div style="display:flex; gap:2px;">
+          {Array(5).fill(null).map(() => <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+        </div>
+        <strong style="color:var(--pd-white);">4.8</strong>
+        <span style="color:var(--pd-muted); font-size:0.875rem;">· 4,000+ verified Google reviews</span>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+      {[
+        { name: 'Sandra Martinez', loc: 'Tucson', initials: 'SM', quote: "My AC died at 9pm on a Friday. D&H had a tech at my door by midnight. Fixed by 1am. These guys are the real deal." },
+        { name: 'Robert Thompson', loc: 'Oro Valley', initials: 'RT', quote: "15 years with D&H. Honest pricing, great technicians, always on time. Never once tried to upsell me something I didn't need." },
+        { name: 'Maria Gonzalez', loc: 'Marana', initials: 'MG', quote: "Brand new system installed in one day. Arrived on time, worked clean, walked me through everything. Exceptional." },
+      ].map((r, i) => (
+        <div style="background:var(--pd-card); border:1px solid var(--pd-border); border-radius:16px; padding:28px; position:relative; overflow:hidden;">
+          <!-- Glow top accent -->
+          <div style="position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg, transparent, var(--pd-blue), transparent); opacity:0.6;"></div>
+          <div style="display:flex; gap:2px; margin-bottom:14px;">
+            {Array(5).fill(null).map(() => <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)}
+          </div>
+          <p style="color:var(--pd-off-white); line-height:1.7; font-size:0.9375rem; margin-bottom:20px;">"{r.quote}"</p>
+          <div style="display:flex; align-items:center; gap:10px; padding-top:16px; border-top:1px solid var(--pd-border);">
+            <div style="width:36px; height:36px; border-radius:50%; background:var(--pd-blue); color:var(--pd-black); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.75rem; flex-shrink:0;">{r.initials}</div>
+            <div>
+              <p style="font-weight:700; font-size:0.875rem; color:var(--pd-white);">{r.name}</p>
+              <p style="font-size:0.75rem; color:var(--pd-muted);">{r.loc} · Google Review</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ── EMERGENCY CTA ─────────────────────────────────────────────── -->
+<section style="background:var(--pd-black); padding:80px 24px; position:relative; overflow:hidden;" class="pd-grid-bg">
+  <div class="pd-glow-blue" style="width:700px; height:400px; background:rgba(249,115,22,0.1); top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; filter:blur(100px);"></div>
+  <div style="max-width:900px; margin:0 auto; text-align:center; position:relative;">
+    <div style="display:inline-flex; align-items:center; gap:8px; background:var(--pd-orange-dim); border:1px solid rgba(249,115,22,0.3); color:var(--pd-orange); font-size:0.7rem; font-weight:700; padding:7px 16px; border-radius:99px; margin-bottom:28px; text-transform:uppercase; letter-spacing:0.08em;">
+      <span style="width:6px; height:6px; background:var(--pd-orange); border-radius:50%;"></span>
+      Trucks on the road right now
+    </div>
+    <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(2.5rem,5vw,4rem); color:var(--pd-white); letter-spacing:-0.04em; line-height:1; margin-bottom:16px;">
+      AC down<br/><span style="color:var(--pd-orange);">in the heat?</span>
+    </h2>
+    <p style="color:var(--pd-muted); font-size:1.0625rem; margin-bottom:36px; max-width:480px; margin-left:auto; margin-right:auto;">HVAC emergencies don't wait for business hours. Neither do we. We're rolling 24/7/365.</p>
+    <a href="tel:5206643699" class="pd-btn-orange" style="font-size:1.25rem; padding:18px 40px; border-radius:14px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Emergency: (520) 664-3699
+    </a>
+  </div>
+</section>
+
+<!-- ── FINAL CTA ─────────────────────────────────────────────────── -->
+<section style="background:var(--pd-surface); padding:72px 24px; border-top:1px solid var(--pd-border);">
+  <div style="max-width:600px; margin:0 auto; text-align:center;">
+    <p class="pd-section-tag">Get Started</p>
+    <h2 style="font-family:var(--font-display); font-weight:900; font-size:2.5rem; color:var(--pd-white); letter-spacing:-0.04em; margin-bottom:12px;">Ready to book service?</h2>
+    <p style="color:var(--pd-muted); font-size:1.0625rem; margin-bottom:32px; line-height:1.65;">Fast response. On time. Right the first time. No surprises on the bill.</p>
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+      <a href="/contact" class="pd-btn-primary">Schedule Online</a>
+      <a href="tel:5204082665" class="pd-btn-ghost">Call (520) 408-2665</a>
+    </div>
+  </div>
+</section>
+
+</BaseLayout>
