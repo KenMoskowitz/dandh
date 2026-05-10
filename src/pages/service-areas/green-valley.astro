@@ -52,19 +52,19 @@ const services = [
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={[breadcrumbSchema, serviceSchema]}>
 
-  <section class="bg-[var(--color-cloud)] border-b border-[var(--color-border)] py-14 md:py-20">
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern py-14 md:py-20 relative overflow-hidden">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="text-sm text-[var(--color-muted)] mb-6">
-        <a href="/" class="hover:text-[var(--color-navy)]">Home</a>
-        <span class="mx-2">/</span>
-        <a href="/service-areas/" class="hover:text-[var(--color-navy)]">Service Areas</a>
-        <span class="mx-2">/</span>
-        <span class="text-[var(--color-charcoal)] font-medium">Green Valley</span>
+      <nav class="flex items-center gap-1.5 text-xs text-blue-400 mb-6">
+        <a href="/" class="hover:text-blue-200 transition-colors">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/service-areas/" class="hover:text-blue-200 transition-colors">Service Areas</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span class="text-blue-200 font-medium">Green Valley</span>
       </nav>
-      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-[var(--color-charcoal)] leading-tight mb-4">
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-[1.05] mb-4">
         AC Repair in Green Valley, AZ —<br class="hidden md:block" /> D&H Air Conditioning
       </h1>
-      <p class="text-[var(--color-muted)] text-lg md:text-xl max-w-2xl mb-8">
+      <p class="text-blue-200 text-lg md:text-xl max-w-2xl mb-8">
         Green Valley's residents deserve the same fast, professional HVAC service as anyone in Tucson. D&H has been making the I-19 run south for decades — and we'll be there when you need us.
       </p>
       <div class="flex flex-col sm:flex-row gap-3">
@@ -72,7 +72,7 @@ const services = [
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
           Schedule Service
         </a>
-        <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-base px-6 py-4 rounded-xl transition-colors">
+        <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white hover:bg-white/10 font-bold text-base px-6 py-4 rounded-xl transition-colors">
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           Call (520) 408-2665
         </a>

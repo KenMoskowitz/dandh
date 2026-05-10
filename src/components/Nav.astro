@@ -4,21 +4,21 @@ const navItems = [
     label: 'Cooling',
     href: '/air-conditioning-repair',
     children: [
-      { label: 'AC Repair', href: '/air-conditioning-repair' },
-      { label: 'Emergency AC Repair', href: '/emergency-ac-repair' },
-      { label: 'AC Installation', href: '/ac-installation' },
-      { label: 'AC Maintenance', href: '/ac-maintenance' },
-      { label: 'Mini-Splits', href: '/products/mini-splits' },
+      { label: 'AC Repair', href: '/air-conditioning-repair', sub: 'All makes & models' },
+      { label: 'Emergency AC Repair', href: '/emergency-ac-repair', sub: '24/7, same day', urgent: true },
+      { label: 'AC Installation', href: '/ac-installation', sub: 'New system, right-sized' },
+      { label: 'AC Maintenance', href: '/ac-maintenance', sub: 'Tune-up & inspection' },
+      { label: 'Mini-Splits', href: '/products/mini-splits', sub: 'Ductless systems' },
     ],
   },
   {
     label: 'Heating',
     href: '/heating',
     children: [
-      { label: 'Heating Repair', href: '/heating' },
-      { label: 'Furnace Repair', href: '/furnace-repair' },
-      { label: 'Gas Furnaces', href: '/products/gas-furnaces' },
-      { label: 'Heat Pumps', href: '/products/heat-pumps' },
+      { label: 'Heating Repair', href: '/heating', sub: 'All systems' },
+      { label: 'Furnace Repair', href: '/furnace-repair', sub: 'Gas & electric' },
+      { label: 'Gas Furnaces', href: '/products/gas-furnaces', sub: 'New installations' },
+      { label: 'Heat Pumps', href: '/products/heat-pumps', sub: 'Dual fuel systems' },
     ],
   },
   {
@@ -28,65 +28,112 @@ const navItems = [
   },
   {
     label: 'Specials',
-    href: '/family-maintenance-plan',
+    href: '/specials',
     children: [
-      { label: 'Family Maintenance Plan', href: '/family-maintenance-plan' },
-      { label: 'Financing', href: '/ac-installation#financing' },
+      { label: 'Current Deals', href: '/specials', sub: 'Seasonal promotions' },
+      { label: 'Family Maintenance Plan', href: '/family-maintenance-plan', sub: 'Best value' },
+      { label: 'Financing Options', href: '/financing', sub: '0% interest available' },
+      { label: 'IRA Tax Credits', href: '/ira-tax-rebates', sub: 'Up to $3,200 back' },
     ],
   },
   {
     label: 'About',
     href: '/about',
     children: [
-      { label: 'Our Story', href: '/about' },
-      { label: 'Reviews', href: '/reviews' },
-      { label: 'Service Areas', href: '/service-areas' },
-      { label: 'Careers', href: '/careers' },
-      { label: 'Contact', href: '/contact' },
+      { label: 'Our Story', href: '/about', sub: 'Since 1959' },
+      { label: 'Reviews', href: '/reviews', sub: '4.8★ · 4,000+ reviews' },
+      { label: 'Service Areas', href: '/service-areas', sub: 'Greater Tucson' },
+      { label: 'Careers', href: '/careers', sub: "We're hiring" },
+      { label: 'Contact', href: '/contact', sub: 'Get in touch' },
     ],
   },
 ];
 ---
 
+<!-- Utility bar -->
+<div class="bg-[var(--color-navy-dark)] text-white text-xs py-2 hidden md:block">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+    <div class="flex items-center gap-4 text-blue-300">
+      <span class="flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Open 24/7 · 365 days a year
+      </span>
+      <span class="text-blue-700">|</span>
+      <span class="flex items-center gap-1.5">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        3990 S Evans Blvd, Tucson, AZ
+      </span>
+      <span class="text-blue-700">|</span>
+      <span>AZ ROC# C-79 #070188 · C-39 #076494</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <span class="flex items-center gap-1.5 text-yellow-400">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <span class="text-blue-200 ml-0.5">4.8 · 4,000+ Google Reviews</span>
+      </span>
+      <a href="tel:5206643699" class="text-[var(--color-orange)] font-bold hover:text-orange-300 transition-colors flex items-center gap-1">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        Emergency: (520) 664-3699
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main nav -->
 <header
-  class="sticky top-0 z-50 bg-white border-b border-[var(--color-border)] shadow-sm"
-  x-data="{ mobileOpen: false }"
+  class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-sm"
+  x-data="{ mobileOpen: false, scrolled: false }"
+  x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 10, { passive: true })"
+  :class="scrolled ? 'shadow-md' : 'shadow-sm'"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
 
       <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 shrink-0">
-        <!-- PLACEHOLDER: Replace this text logo with real D&H SVG logo -->
-        <div class="flex items-center gap-1.5">
-          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--color-sky)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"/><path d="M6 11c1.5 0 3 .5 3 2-2 0-3 0-3-2Z"/><path d="M18 11c-1.5 0-3 .5-3 2 2 0 3 0 3-2Z"/></svg>
-          <span class="font-display font-800 text-xl text-[var(--color-navy)] leading-none">D&amp;H</span>
-          <span class="hidden sm:inline text-sm font-medium text-[var(--color-muted)] leading-none">Air Conditioning</span>
+      <a href="/" class="flex items-center gap-2.5 shrink-0 group">
+        <!-- PLACEHOLDER: Replace with real D&H SVG logo -->
+        <div class="w-9 h-9 rounded-lg bg-[var(--color-navy)] flex items-center justify-center group-hover:bg-[var(--color-sky)] transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12a5 5 0 0 0 5 5 8 8 0 0 1 5 2 8 8 0 0 1 5-2 5 5 0 0 0 5-5V7h-5a8 8 0 0 0-5 2 8 8 0 0 0-5-2H2Z"/></svg>
+        </div>
+        <div class="leading-none">
+          <span class="font-display font-extrabold text-xl text-[var(--color-navy)] block">D&amp;H</span>
+          <span class="hidden sm:block text-[10px] font-semibold text-[var(--color-muted)] tracking-wide uppercase">Air Conditioning · Since 1959</span>
         </div>
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden md:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center gap-0.5">
         {navItems.map(item => (
-          <div class="relative group">
+          <div class="nav-item relative">
             <a
               href={item.href}
-              class="flex items-center gap-0.5 px-3 py-2 text-sm font-medium text-[var(--color-charcoal)] hover:text-[var(--color-navy)] rounded-md transition-colors"
+              class="flex items-center gap-0.5 px-3.5 py-2 text-sm font-semibold text-[var(--color-charcoal)] hover:text-[var(--color-navy)] rounded-lg hover:bg-[var(--color-cloud)] transition-all"
             >
               {item.label}
               {item.children.length > 0 && (
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                <svg class="opacity-50 transition-transform group-hover:rotate-180" xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
               )}
             </a>
             {item.children.length > 0 && (
-              <div class="absolute top-full left-0 pt-1 hidden group-hover:block">
-                <div class="bg-white border border-[var(--color-border)] rounded-xl shadow-lg py-2 min-w-[200px]">
-                  {item.children.map(child => (
+              <div class="nav-dropdown absolute top-full left-0 pt-2 z-50">
+                <div class="bg-white border border-[var(--color-border)] rounded-2xl shadow-2xl shadow-navy/10 py-2 min-w-[230px] overflow-hidden">
+                  {item.children.map((child: any) => (
                     <a
                       href={child.href}
-                      class="block px-4 py-2 text-sm text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)] hover:text-[var(--color-navy)] transition-colors"
+                      class={`flex items-start gap-3 px-4 py-3 hover:bg-[var(--color-cloud)] transition-colors group/item ${child.urgent ? 'bg-orange-50 hover:bg-orange-100' : ''}`}
                     >
-                      {child.label}
+                      <div class="flex-1 min-w-0">
+                        <p class={`text-sm font-semibold leading-none mb-0.5 ${child.urgent ? 'text-[var(--color-orange)]' : 'text-[var(--color-charcoal)] group-hover/item:text-[var(--color-navy)]'}`}>
+                          {child.label}
+                          {child.urgent && <span class="ml-1.5 text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded-full font-bold uppercase tracking-wide">NOW</span>}
+                        </p>
+                        <p class="text-xs text-[var(--color-muted)]">{child.sub}</p>
+                      </div>
+                      <svg class="shrink-0 mt-1 opacity-0 group-hover/item:opacity-100 transition-opacity text-[var(--color-sky)]" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                     </a>
                   ))}
                 </div>
@@ -97,17 +144,17 @@ const navItems = [
       </nav>
 
       <!-- Desktop right: phone + CTA -->
-      <div class="hidden md:flex items-center gap-3">
+      <div class="hidden lg:flex items-center gap-3">
         <a
           href="tel:5204082665"
           class="flex items-center gap-1.5 font-bold text-[var(--color-navy)] text-sm hover:text-[var(--color-sky)] transition-colors"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           (520) 408-2665
         </a>
         <a
           href="/contact"
-          class="bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-sm px-4 py-2 rounded-lg transition-colors"
+          class="bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-colors shadow-sm hover:shadow-md"
         >
           Book Now
         </a>
@@ -116,11 +163,11 @@ const navItems = [
       <!-- Mobile hamburger -->
       <button
         @click="mobileOpen = !mobileOpen"
-        class="md:hidden p-2 rounded-md text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)]"
+        class="lg:hidden p-2 rounded-lg text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)] transition-colors"
         aria-label="Toggle menu"
       >
-        <svg x-show="!mobileOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-        <svg x-show="mobileOpen" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        <svg x-show="!mobileOpen" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg x-show="mobileOpen" style="display:none" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
       </button>
     </div>
   </div>
@@ -134,40 +181,50 @@ const navItems = [
     x-transition:leave="transition ease-in duration-150"
     x-transition:leave-start="opacity-100 translate-y-0"
     x-transition:leave-end="opacity-0 -translate-y-2"
-    class="md:hidden bg-white border-t border-[var(--color-border)] pb-4 pb-safe"
+    style="display:none"
+    class="lg:hidden bg-white border-t border-[var(--color-border)] pb-4"
   >
+    <!-- Emergency mobile banner -->
+    <a href="tel:5206643699" class="flex items-center justify-center gap-2 bg-red-600 text-white py-3 font-bold text-sm">
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      Emergency Line: (520) 664-3699
+    </a>
     {navItems.map(item => (
       <div x-data="{ open: false }">
-        <button
-          @click="open = !open"
-          class="w-full flex items-center justify-between px-6 py-3 text-sm font-semibold text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)]"
-        >
-          <span>{item.label}</span>
-          {item.children.length > 0 && (
-            <svg :class="open ? 'rotate-180' : ''" class="transition-transform" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          )}
-        </button>
-        {item.children.length > 0 && (
-          <div x-show="open" class="bg-[var(--color-cloud)]">
-            {item.children.map(child => (
-              <a
-                href={child.href}
-                class="block px-10 py-2.5 text-sm text-[var(--color-charcoal)] hover:text-[var(--color-navy)]"
-              >
-                {child.label}
-              </a>
-            ))}
-          </div>
-        )}
-        {item.children.length === 0 && (
-          <a href={item.href} class="block px-6 py-3 text-sm text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)]" />
+        {item.children.length > 0 ? (
+          <>
+            <button
+              @click="open = !open"
+              class="w-full flex items-center justify-between px-5 py-3.5 text-sm font-semibold text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)] transition-colors"
+            >
+              <span>{item.label}</span>
+              <svg :class="open ? 'rotate-180' : ''" class="transition-transform duration-200 text-[var(--color-muted)]" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div x-show="open" x-transition class="bg-[var(--color-cloud)]">
+              {item.children.map((child: any) => (
+                <a
+                  href={child.href}
+                  class={`flex items-center justify-between px-8 py-2.5 text-sm transition-colors ${child.urgent ? 'text-[var(--color-orange)] font-semibold' : 'text-[var(--color-charcoal)] hover:text-[var(--color-navy)]'}`}
+                >
+                  <span>{child.label}</span>
+                  {child.urgent && <span class="text-[10px] bg-red-600 text-white px-1.5 py-0.5 rounded-full font-bold uppercase">24/7</span>}
+                </a>
+              ))}
+            </div>
+          </>
+        ) : (
+          <a href={item.href} class="block px-5 py-3.5 text-sm font-semibold text-[var(--color-charcoal)] hover:bg-[var(--color-cloud)] transition-colors">{item.label}</a>
         )}
       </div>
     ))}
-    <div class="px-6 pt-3 border-t border-[var(--color-border)] mt-2">
-      <a href="tel:5204082665" class="flex items-center gap-2 font-bold text-[var(--color-navy)] text-sm mb-3">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        (520) 408-2665
+    <div class="px-5 pt-4 border-t border-[var(--color-border)] mt-2 flex gap-3">
+      <a href="tel:5204082665" class="flex-1 flex items-center justify-center gap-2 border-2 border-[var(--color-navy)] text-[var(--color-navy)] font-bold text-sm py-3 rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call
+      </a>
+      <a href="/contact" class="flex-1 flex items-center justify-center gap-2 bg-[var(--color-orange)] text-white font-bold text-sm py-3 rounded-xl">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+        Book Online
       </a>
     </div>
   </div>

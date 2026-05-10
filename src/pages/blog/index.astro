@@ -75,16 +75,17 @@ const categoryColors: Record<string, string> = {
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <!-- ======= HERO ======= -->
-  <section class="bg-[var(--color-cloud)] py-16 md:py-20 border-b border-[var(--color-border)]">
-    <div class="container mx-auto px-4 text-center">
-      <div class="inline-block bg-[var(--color-navy)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full mb-5 uppercase tracking-wider">
         Expert HVAC Advice — Free
       </div>
-      <h1 class="font-display font-800 text-4xl md:text-5xl text-[var(--color-charcoal)] mb-5">
-        HVAC Tips for Tucson Homeowners
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-[1.05] mb-5">
+        HVAC Tips for
+        <span class="text-sky-300">Tucson Homeowners</span>
       </h1>
-      <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+      <p class="text-blue-200 text-lg max-w-xl mx-auto">
         Real advice from the team that's been keeping Tucson comfortable since 1959. No fluff, no upselling — just useful information to help you make smart decisions about your home.
       </p>
     </div>

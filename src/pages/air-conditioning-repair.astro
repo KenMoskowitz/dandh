@@ -3,15 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 
-const title = "AC Repair in Tucson, AZ — All Makes & Models | D&H Air Conditioning";
-const description = "Expert AC repair in Tucson. NATE-certified techs fix all brands same-day. Transparent pricing. Call (520) 408-2665 or schedule online.";
+const title = "AC Repair Tucson | All Makes & Models | Same-Day | D&H Air Conditioning";
+const description = "Fast, reliable AC repair in Tucson. NATE-certified technicians on all makes and models. Same-day service in most cases. Call (520) 408-2665.";
 const canonical = "https://dandhac.com/air-conditioning-repair";
 
 const faqItems = [
-  { question: "Do you charge a diagnostic fee?", answer: "Yes, we charge a diagnostic fee that is waived if you proceed with the repair." },
-  { question: "Can you fix my AC the same day?", answer: "In most cases, yes. We stock common parts on our trucks." },
-  { question: "How long does a typical repair take?", answer: "Most repairs are completed in 1–3 hours once we're on-site." },
-  { question: "What warranty do you offer on repairs?", answer: "All parts and labor are warranted. Ask your technician for specific warranty terms." },
+  { question: "Do you offer same-day AC repair?", answer: "Yes. In most cases, we can dispatch a NATE-certified technician the same day you call. Our trucks carry common parts so many repairs are completed in a single visit." },
+  { question: "How much does AC repair cost in Tucson?", answer: "Repair costs vary by problem and system type. We provide upfront, transparent pricing before any work begins — no surprise charges after the fact." },
+  { question: "What brands do you service?", answer: "All major brands: Carrier, Trane, Lennox, Daikin, Rheem, York, Goodman, American Standard, Bryant, and 20+ more." },
+  { question: "Can you fix my AC on the weekend or at night?", answer: "Absolutely. Our emergency line (520) 664-3699 is available 24/7, 365 days a year. After-hours and weekend appointments are available." },
+  { question: "How do I know if I need repair vs. replacement?", answer: "We'll give you an honest assessment. If your system is over 12–15 years old, requires frequent repairs, or the repair cost exceeds half the replacement cost, replacement often makes more financial sense. We'll walk you through the numbers." },
 ];
 
 const faqSchema = {
@@ -22,6 +23,24 @@ const faqSchema = {
     "name": item.question,
     "acceptedAnswer": { "@type": "Answer", "text": item.answer }
   }))
+};
+
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "AC Repair",
+  "provider": { "@type": "HVACBusiness", "name": "D&H Air Conditioning & Heating & Plumbing", "telephone": "(520) 408-2665", "url": "https://dandhac.com" },
+  "areaServed": "Tucson, AZ",
+  "description": "Same-day AC repair in Tucson on all makes and models. NATE-certified technicians."
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dandhac.com" },
+    { "@type": "ListItem", "position": 2, "name": "AC Repair", "item": canonical }
+  ]
 };
 
 const symptoms = [
@@ -67,45 +86,74 @@ const steps = [
 ];
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={faqSchema}>
+<BaseLayout title={title} description={description} canonical={canonical} schema={[faqSchema, serviceSchema, breadcrumbSchema]}>
 
-  <!-- Hero -->
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
   <section class="bg-white border-b border-[var(--color-border)]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div class="grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <div class="inline-flex items-center gap-2 bg-blue-50 text-[var(--color-navy)] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider border border-blue-100">
-          NATE-Certified · All Makes & Models · Same-Day Repair
+        <div>
+          <nav class="flex items-center gap-1.5 text-xs text-[var(--color-muted)] mb-6">
+            <a href="/" class="hover:text-[var(--color-navy)] transition-colors">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="text-[var(--color-charcoal)] font-medium">AC Repair</span>
+          </nav>
+          <div class="inline-flex items-center gap-2 bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold px-3 py-1.5 rounded-full mb-5 uppercase tracking-wider">
+            All Makes &amp; Models · Same-Day Available
+          </div>
+          <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-[var(--color-charcoal)] leading-[1.05] mb-5">
+            AC Repair in Tucson —
+            <span class="text-[var(--color-sky)]">We Fix It Right</span>
+          </h1>
+          <p class="text-[var(--color-muted)] text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+            If it blows warm air, makes weird noises, or just quits — we diagnose it fast and fix it right. Same-day service in most cases.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-7 py-4 rounded-xl transition-colors shadow-lg">Schedule a Repair</a>
+            <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-base px-7 py-4 rounded-xl transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              (520) 408-2665
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-4 text-sm">
+            {['NATE-certified techs', 'Upfront pricing', 'All brands', '24/7 emergency'].map(t => (
+              <span class="flex items-center gap-1.5 text-[var(--color-muted)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-        <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-[var(--color-navy)] leading-tight mb-5">
-          AC Repair in Tucson —<br class="hidden md:block" /> All Makes & Models
-        </h1>
-        <p class="text-[var(--color-muted)] text-xl leading-relaxed mb-8">
-          If it blows warm air, makes weird noises, or just quits — we fix it. Same day, most cases.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-7 py-4 rounded-xl transition-colors shadow-lg">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
-            Schedule a Repair
-          </a>
-          <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-base px-7 py-4 rounded-xl transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call (520) 408-2665
-          </a>
+
+        <!-- PLACEHOLDER: Replace with real D&H technician on the job photography -->
+        <div class="hidden lg:flex flex-col gap-5">
+          <div class="rounded-2xl overflow-hidden shadow-xl aspect-[4/3] relative">
+            <img
+              src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=700&q=80"
+              alt="D&H NATE-certified technician diagnosing an air conditioning system in Tucson"
+              width="700" height="525"
+              loading="eager"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 flex items-center gap-2 bg-[var(--color-success)]/90 text-white text-xs font-bold px-3 py-1.5 rounded-full">
+              <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
+              Available Today
+            </div>
+          </div>
+          <!-- Quick stats row -->
+          <div class="grid grid-cols-3 gap-3">
+            {[
+              { v: 'Same Day', l: 'Service available' },
+              { v: 'All Brands', l: '20+ brands serviced' },
+              { v: '65+ Yrs', l: 'Tucson experience' },
+            ].map(s => (
+              <div class="bg-[var(--color-cloud)] rounded-xl p-3 text-center border border-[var(--color-border)]">
+                <p class="font-display font-extrabold text-base text-[var(--color-navy)]">{s.v}</p>
+                <p class="text-xs text-[var(--color-muted)] mt-0.5">{s.l}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-
-      <!-- PLACEHOLDER: Replace with real D&H technician on the job photography -->
-      <div class="hidden lg:block rounded-2xl overflow-hidden shadow-xl aspect-[4/3]">
-        <img
-          src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=700&q=80"
-          alt="D&H NATE-certified technician diagnosing an air conditioning system in Tucson"
-          width="700" height="525"
-          loading="eager"
-          class="w-full h-full object-cover"
-        />
-      </div>
-
       </div>
     </div>
   </section>

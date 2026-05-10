@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+
+const title = "Current Specials & Deals | D&H Air Conditioning Tucson";
+const description = "Current HVAC specials and seasonal deals from D&H Air Conditioning in Tucson. AC tune-up discounts, installation rebates, maintenance plan offers. Call (520) 408-2665.";
+const canonical = "https://dandhac.com/specials";
+
+const deals = [
+  {
+    tag: "Limited Time",
+    title: "$89 AC Tune-Up Special",
+    desc: "Full 10-point inspection, filter check, and system performance report. Normally $129. Book before summer.",
+    savings: "Save $40",
+    cta: "Book Tune-Up",
+    href: "/contact",
+    urgent: false,
+  },
+  {
+    tag: "New Customers",
+    title: "$50 Off First Repair",
+    desc: "$50 off your first AC or heating repair when you're a new D&H customer. Just mention this special when you call.",
+    savings: "Save $50",
+    cta: "Schedule Repair",
+    href: "/contact",
+    urgent: false,
+  },
+  {
+    tag: "Family Plan",
+    title: "Join the Family Maintenance Plan — Free 1st Month",
+    desc: "Enroll in the Family Maintenance Plan and get your first month free. Two tune-ups/year, priority dispatch, 10% off all repairs.",
+    savings: "Starting $199/yr",
+    cta: "See Plan Details",
+    href: "/family-maintenance-plan",
+    urgent: false,
+  },
+  {
+    tag: "Installation",
+    title: "0% Financing on New AC Systems",
+    desc: "New system installations qualify for 0% financing on approved credit. Payments as low as $79/month.",
+    savings: "0% APR",
+    cta: "Get Free Estimate",
+    href: "/ac-installation",
+    urgent: false,
+  },
+  {
+    tag: "Federal Credit",
+    title: "Up to $3,200 in IRA Tax Credits",
+    desc: "Qualifying heat pumps and ENERGY STAR systems may be eligible for federal tax credits under the Inflation Reduction Act.",
+    savings: "Up to $3,200",
+    cta: "Learn More",
+    href: "/ira-tax-rebates",
+    urgent: false,
+  },
+  {
+    tag: "Emergency",
+    title: "No After-Hours Surcharge for Plan Members",
+    desc: "Family Maintenance Plan members pay the same rate at midnight on Sunday as they do at 9am on Monday. No surprise fees.",
+    savings: "Save up to $150",
+    cta: "Join the Plan",
+    href: "/family-maintenance-plan",
+    urgent: false,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative text-center">
+      <div class="inline-flex items-center gap-2 bg-[var(--color-orange)]/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-full mb-5 uppercase tracking-wider">
+        <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Current Deals &amp; Savings
+      </div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl text-white leading-[1.05] mb-5">
+        Specials for Tucson
+        <span class="text-orange-300">Homeowners</span>
+      </h1>
+      <p class="text-blue-200 text-lg max-w-xl mx-auto">
+        Current offers on AC tune-ups, new installations, maintenance plans, and financing. All subject to availability — call to confirm before booking.
+      </p>
+    </div>
+  </section>
+
+  <!-- Deals Grid -->
+  <section class="py-16 md:py-24 bg-[var(--color-cloud)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {deals.map(deal => (
+          <div class="reveal bg-white rounded-2xl border border-[var(--color-border)] shadow-sm overflow-hidden flex flex-col">
+            <div class="bg-[var(--color-navy)] px-6 py-4 flex items-center justify-between">
+              <span class="text-xs font-bold text-orange-300 uppercase tracking-wider">{deal.tag}</span>
+              <span class="bg-[var(--color-orange)] text-white text-xs font-bold px-3 py-1 rounded-full">{deal.savings}</span>
+            </div>
+            <div class="p-6 flex flex-col flex-1">
+              <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">{deal.title}</h2>
+              <p class="text-[var(--color-muted)] text-sm leading-relaxed flex-1 mb-5">{deal.desc}</p>
+              <a href={deal.href} class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-sm px-5 py-3 rounded-xl transition-colors">
+                {deal.cta} →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <p class="text-[var(--color-muted)] text-sm mb-4">Offers subject to change. Call to verify current availability before booking.</p>
+        <a href="tel:5204082665" class="inline-flex items-center gap-2 text-[var(--color-navy)] font-bold hover:text-[var(--color-orange)] transition-colors">
+          Call (520) 408-2665 to confirm →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Badges -->
+  <TrustBadges />
+
+  <!-- Final CTA -->
+  <section class="bg-[var(--color-navy)] py-14">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-display font-extrabold text-3xl text-white mb-4">Don't miss the savings.</h2>
+      <p class="text-blue-200 text-lg mb-8">Book while these offers last. Our team is standing by.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
+          Book Service Now
+        </a>
+        <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-[var(--color-navy)] font-bold text-lg px-8 py-4 rounded-xl transition-colors">
+          Call (520) 408-2665
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

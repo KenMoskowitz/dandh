@@ -1,47 +1,40 @@
 ---
-// PLACEHOLDER: Replace these with real Google review content pulled from the Google Maps API or manually entered.
+// PLACEHOLDER: Replace with real Google review content via API or manual entry
 const reviews = [
-  { name: 'Sandra M.', excerpt: 'AC was fixed same day. Jacob was incredible — professional and fast.', stars: 5 },
-  { name: 'Robert T.', excerpt: 'Best HVAC company in Tucson. Been using D&H for 15 years.', stars: 5 },
-  { name: 'Maria G.', excerpt: 'They showed up at 10pm on a Sunday. Truly 24/7 service.', stars: 5 },
-  { name: 'James K.', excerpt: 'Fair pricing, no upselling. The tech explained everything clearly.', stars: 5 },
-  { name: 'Linda P.', excerpt: 'New unit installed in one day. Crew was clean and professional.', stars: 5 },
-  { name: 'David R.', excerpt: 'Emergency call handled within 2 hours. AC running perfectly.', stars: 5 },
-  { name: 'Carla F.', excerpt: "Family-run business that still cares. Tucson's best, period.", stars: 5 },
-  { name: 'Tom W.', excerpt: 'On time, on budget. The Family Plan saved us $400 last year.', stars: 5 },
+  { name: 'Sandra M.', location: 'Tucson', excerpt: 'AC fixed same day at 9pm. Jacob was incredible — professional and fast.', stars: 5 },
+  { name: 'Robert T.', location: 'Oro Valley', excerpt: 'Best HVAC company in Tucson. 15 years, never let us down.', stars: 5 },
+  { name: 'Maria G.', location: 'Marana', excerpt: 'They showed up at 10pm on a Sunday. Truly 24/7 service.', stars: 5 },
+  { name: 'James K.', location: 'Catalina Foothills', excerpt: 'Fair pricing, zero upselling. Tech explained everything clearly.', stars: 5 },
+  { name: 'Linda P.', location: 'Sahuarita', excerpt: 'New unit in one day. Crew was clean and professional.', stars: 5 },
+  { name: 'David R.', location: 'Casas Adobes', excerpt: 'Emergency call handled in under 2 hours. AC perfect now.', stars: 5 },
+  { name: 'Carla F.', location: 'Green Valley', excerpt: 'Family business that still cares. Tucson\'s best, period.', stars: 5 },
+  { name: 'Tom W.', location: 'Vail', excerpt: 'The Family Plan saved us $400 last year. Worth every penny.', stars: 5 },
 ];
 ---
 
-<div class="bg-[var(--color-navy)] py-4 overflow-hidden" aria-hidden="true">
+<div class="bg-[var(--color-navy-dark)] py-3.5 overflow-hidden border-y border-white/5" aria-hidden="true">
   <div class="ticker-track">
-    <!-- First set -->
-    {reviews.map(r => (
-      <div class="flex items-center gap-3 px-6 py-2 shrink-0">
-        <div class="flex text-yellow-400">
+    {[...reviews, ...reviews].map(r => (
+      <div class="flex items-center gap-3 px-5 shrink-0">
+        <!-- Stars -->
+        <div class="flex gap-0.5">
           {Array(r.stars).fill(null).map(() => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="#FBBF24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           ))}
         </div>
-        <p class="text-white text-sm">
-          <span class="font-semibold">{r.name}:</span> "{r.excerpt}"
+        <!-- Review text -->
+        <p class="text-white text-sm whitespace-nowrap">
+          <span class="text-blue-300 font-semibold">{r.name}</span>
+          <span class="text-blue-500 mx-1">·</span>
+          <span class="text-blue-200">{r.location}</span>
+          <span class="text-white/60 mx-1.5">"</span>
+          <span>{r.excerpt}</span>
+          <span class="text-white/60">"</span>
         </p>
-        <span class="text-blue-400 text-xs ml-1">Google Review</span>
-        <span class="w-px h-4 bg-blue-700 ml-4"></span>
-      </div>
-    ))}
-    <!-- Duplicate set for seamless loop -->
-    {reviews.map(r => (
-      <div class="flex items-center gap-3 px-6 py-2 shrink-0">
-        <div class="flex text-yellow-400">
-          {Array(r.stars).fill(null).map(() => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          ))}
-        </div>
-        <p class="text-white text-sm">
-          <span class="font-semibold">{r.name}:</span> "{r.excerpt}"
-        </p>
-        <span class="text-blue-400 text-xs ml-1">Google Review</span>
-        <span class="w-px h-4 bg-blue-700 ml-4"></span>
+        <!-- Source -->
+        <span class="text-xs text-blue-500 font-medium whitespace-nowrap">Google Review</span>
+        <!-- Separator -->
+        <span class="w-px h-3.5 bg-white/15 ml-2 shrink-0"></span>
       </div>
     ))}
   </div>

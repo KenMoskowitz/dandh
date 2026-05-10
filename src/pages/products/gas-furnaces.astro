@@ -72,13 +72,13 @@ const faqItems = [
 <BaseLayout title={title} description={description} canonical={canonical} schema={[breadcrumbSchema, productSchema]}>
 
   <!-- Hero -->
-  <section class="bg-[var(--color-navy)] hero-pattern py-16 md:py-24">
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern py-16 md:py-24 relative overflow-hidden">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <nav class="text-sm text-blue-300 mb-6">
-        <a href="/" class="hover:text-white">Home</a>
-        <span class="mx-2">/</span>
-        <a href="/products/" class="hover:text-white">Products</a>
-        <span class="mx-2">/</span>
+      <nav class="flex items-center gap-1.5 text-xs text-blue-400 mb-6">
+        <a href="/" class="hover:text-blue-200 transition-colors">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <a href="/products/" class="hover:text-blue-200 transition-colors">Products</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         <span class="text-blue-100">Gas Furnaces</span>
       </nav>
       <div class="max-w-3xl">
@@ -92,7 +92,7 @@ const faqItems = [
           Tucson winters are milder than most — but they're colder than people expect. When the temperature drops, a properly sized gas furnace delivers fast, powerful heat that keeps your family comfortable all season.
         </p>
         <div class="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-6 py-4 rounded-xl transition-colors shadow-lg">
+          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-6 py-4 rounded-xl transition-colors shadow-lg cta-pulse">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
             Get a Free Estimate
           </a>

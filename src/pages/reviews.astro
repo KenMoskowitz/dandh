@@ -85,27 +85,28 @@ const schema = {
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
 
-  <!-- ======= HERO ======= -->
-  <section class="bg-white py-16 md:py-24 border-b border-[var(--color-border)]">
-    <div class="container mx-auto px-4 text-center">
-      <h1 class="font-display font-800 text-4xl md:text-5xl text-[var(--color-charcoal)] mb-6">
-        What Tucson Says About D&H
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-80 h-80 bg-yellow-500/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+        Google Verified Reviews · Tucson, AZ
+      </div>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-6">
+        What Tucson Says
+        <span class="text-yellow-300">About D&H</span>
       </h1>
-
-      <!-- Star display -->
+      <!-- Big star display -->
       <div class="flex flex-col items-center gap-3 mb-6">
         <div class="flex text-yellow-400 gap-1">
           {Array(5).fill(null).map(() => (
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
           ))}
         </div>
-        <div class="flex flex-col items-center">
-          <p class="font-display font-800 text-5xl text-[var(--color-charcoal)]">4.8</p>
-          <p class="text-[var(--color-muted)] text-base mt-1">out of 5 &mdash; 4,000+ Google Reviews</p>
-        </div>
+        <p class="font-display font-extrabold text-6xl text-white">4.8</p>
+        <p class="text-blue-200 text-base">out of 5 — 4,000+ verified Google reviews</p>
       </div>
-
-      <p class="text-[var(--color-muted)] text-lg max-w-xl mx-auto">
+      <p class="text-blue-200 text-lg max-w-xl mx-auto">
         Over 4,000 Tucson homeowners have shared their experience with D&H. Here's what they said.
       </p>
     </div>

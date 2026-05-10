@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Terms of Service | D&H Air Conditioning & Heating & Plumbing";
+const description = "Terms of service for D&H Air Conditioning & Heating & Plumbing in Tucson, AZ.";
+const canonical = "https://dandhac.com/terms";
+const lastUpdated = "January 1, 2025";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <section class="bg-[var(--color-cloud)] py-12 border-b border-[var(--color-border)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-1.5 text-xs text-[var(--color-muted)] mb-4">
+        <a href="/" class="hover:text-[var(--color-navy)] transition-colors">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Terms of Service</span>
+      </nav>
+      <h1 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-2">Terms of Service</h1>
+      <p class="text-[var(--color-muted)] text-sm">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-sm max-w-none text-[var(--color-muted)] leading-relaxed space-y-8">
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">1. Service Agreement</h2>
+          <p class="text-sm">By engaging D&H Air Conditioning & Heating & Plumbing ("D&H") for services, you agree to these terms. Services are provided in the greater Tucson, Arizona area and subject to technician availability.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">2. Pricing and Payment</h2>
+          <p class="text-sm">D&H provides upfront pricing before any work begins. All prices are quoted in U.S. dollars. Payment is due upon completion of service. We accept major credit cards, check, and cash. Financing terms are subject to separate financing agreements.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">3. Scheduling and Cancellation</h2>
+          <p class="text-sm">Same-day appointments are subject to availability. We request at least 24 hours notice for cancellations. Emergency service is available 24/7 and may be subject to after-hours rates (waived for Family Maintenance Plan members).</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">4. Warranties</h2>
+          <p class="text-sm">D&H warrants labor on all repairs for a period specified at the time of service (typically 30–90 days). Equipment warranties are provided by the manufacturer and are separate from D&H's labor warranty. Extended warranties may be available; ask your technician for details.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">5. Family Maintenance Plan</h2>
+          <p class="text-sm">The Family Maintenance Plan is an annual agreement. Benefits begin upon enrollment. Members may cancel at any time with a prorated refund of unused service value. Priority dispatch and discount benefits apply only to active members in good standing.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">6. Limitation of Liability</h2>
+          <p class="text-sm">D&H's liability for any claim arising from services is limited to the amount paid for the specific service giving rise to the claim. D&H is not liable for incidental or consequential damages.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">7. Governing Law</h2>
+          <p class="text-sm">These terms are governed by the laws of the State of Arizona. Disputes shall be resolved in Pima County, Arizona.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">8. Contact</h2>
+          <address class="not-italic text-sm">
+            D&H Air Conditioning & Heating & Plumbing<br />
+            3990 S Evans Blvd, Tucson, AZ 85714<br />
+            <a href="tel:5204082665" class="text-[var(--color-navy)] hover:underline">(520) 408-2665</a>
+          </address>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

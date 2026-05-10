@@ -45,19 +45,33 @@ const timeline = [
 
 <BaseLayout title={title} description={description} canonical={canonical} schema={schema}>
 
-  <!-- ======= HERO ======= -->
-  <section class="bg-[var(--color-cloud)] py-20 md:py-28">
-    <div class="container mx-auto px-4 text-center">
-      <div class="inline-block bg-[var(--color-navy)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
-        Family-Owned Since 1959
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern relative overflow-hidden">
+    <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-500/5 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative text-center">
+      <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+        Family-Owned Since 1959 · Three Generations
       </div>
-      <h1 class="font-display font-800 text-4xl md:text-5xl lg:text-6xl text-[var(--color-charcoal)] mb-6 leading-tight max-w-4xl mx-auto">
-        The Family That's Kept<br class="hidden md:block" />
-        <span class="text-[var(--color-navy)]">Tucson Cool Since 1959</span>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-6 max-w-4xl mx-auto">
+        The Family That's Kept
+        <span class="text-sky-300">Tucson Cool Since 1959</span>
       </h1>
-      <p class="text-[var(--color-muted)] text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-        From a two-man operation in 1959 to Tucson's most trusted HVAC company — three generations of commitment to honest work and the people of this city.
+      <p class="text-blue-200 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+        From a two-man operation to Tucson's most trusted HVAC company — three generations of honest work and commitment to the people of this city.
       </p>
+      <div class="flex flex-wrap items-center justify-center gap-8">
+        {[
+          { v: '1959', l: 'Founded' },
+          { v: '65+', l: 'Years in Tucson' },
+          { v: '4.8★', l: '4,000+ Google Reviews' },
+          { v: '3', l: 'Generations of ownership' },
+        ].map(s => (
+          <div class="text-center">
+            <p class="font-display font-extrabold text-3xl text-white">{s.v}</p>
+            <p class="text-blue-300 text-xs mt-0.5">{s.l}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 

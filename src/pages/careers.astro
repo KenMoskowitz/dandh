@@ -96,41 +96,27 @@ const positions = [
 
 <BaseLayout title={title} description={description} canonical={canonical}>
 
-  <!-- ======= HERO ======= -->
-  <section class="bg-[var(--color-navy)] text-white py-20 md:py-28 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10" aria-hidden="true">
-      <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern id="dots" width="30" height="30" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.5" fill="white"/>
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dots)" />
-      </svg>
-    </div>
-
-    <div class="container mx-auto px-4 text-center relative">
-      <div class="inline-block bg-[var(--color-orange)] text-white text-sm font-bold px-4 py-2 rounded-full mb-6">
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] dot-grid relative overflow-hidden">
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28 relative text-center">
+      <div class="inline-flex items-center gap-2 bg-[var(--color-orange)]/90 text-white text-xs font-bold px-3.5 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+        <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
         Now Hiring — Tucson, AZ
       </div>
-      <h1 class="font-display font-800 text-4xl md:text-5xl lg:text-6xl text-white mb-6 leading-tight">
-        Work Where <span class="text-[var(--color-orange)]">Tucson Works</span>
+      <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-6">
+        Work Where
+        <span class="text-orange-300">Tucson Works</span>
       </h1>
       <p class="text-blue-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
         Join the team that's been the backbone of Tucson's comfort for 65+ years.<br class="hidden md:block" />
         Competitive pay. Real benefits. A career, not just a job.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="#open-positions"
-          class="inline-block bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
-        >
+        <a href="#open-positions" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors shadow-lg">
           See Open Positions
         </a>
-        <a
-          href="#apply"
-          class="inline-block border-2 border-white/30 hover:border-white text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors"
-        >
+        <a href="#apply" class="inline-flex items-center justify-center gap-2 border-2 border-white/30 hover:bg-white/10 text-white font-bold text-lg px-8 py-4 rounded-xl transition-colors">
           Apply Now
         </a>
       </div>

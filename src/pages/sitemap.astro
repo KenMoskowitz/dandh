@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Sitemap | D&H Air Conditioning Tucson";
+const description = "Full sitemap for D&H Air Conditioning & Heating & Plumbing — all services, service areas, and resources.";
+const canonical = "https://dandhac.com/sitemap";
+
+const sections = [
+  {
+    title: "HVAC Services",
+    links: [
+      { label: "AC Repair", href: "/air-conditioning-repair" },
+      { label: "Emergency AC Repair", href: "/emergency-ac-repair" },
+      { label: "AC Installation", href: "/ac-installation" },
+      { label: "AC Maintenance", href: "/ac-maintenance" },
+      { label: "Heating Repair", href: "/heating" },
+      { label: "Furnace Repair", href: "/furnace-repair" },
+      { label: "Plumbing", href: "/plumbing" },
+    ],
+  },
+  {
+    title: "Products",
+    links: [
+      { label: "Mini-Split Systems", href: "/products/mini-splits" },
+      { label: "Heat Pumps", href: "/products/heat-pumps" },
+      { label: "Gas Furnaces", href: "/products/gas-furnaces" },
+      { label: "Daikin Systems", href: "/products/daikin" },
+    ],
+  },
+  {
+    title: "Savings & Plans",
+    links: [
+      { label: "Family Maintenance Plan", href: "/family-maintenance-plan" },
+      { label: "Current Specials", href: "/specials" },
+      { label: "Financing", href: "/financing" },
+      { label: "IRA Tax Credits", href: "/ira-tax-rebates" },
+    ],
+  },
+  {
+    title: "Service Areas",
+    links: [
+      { label: "Tucson", href: "/service-areas/tucson" },
+      { label: "Oro Valley", href: "/service-areas/oro-valley" },
+      { label: "Marana", href: "/service-areas/marana" },
+      { label: "Casas Adobes", href: "/service-areas/casas-adobes" },
+      { label: "Catalina Foothills", href: "/service-areas/catalina-foothills" },
+      { label: "Catalina", href: "/service-areas/catalina" },
+      { label: "Green Valley", href: "/service-areas/green-valley" },
+      { label: "Saddlebrooke", href: "/service-areas/saddlebrooke" },
+      { label: "Sahuarita", href: "/service-areas/sahuarita" },
+      { label: "Vail", href: "/service-areas/vail" },
+    ],
+  },
+  {
+    title: "Company",
+    links: [
+      { label: "About D&H", href: "/about" },
+      { label: "Reviews", href: "/reviews" },
+      { label: "Careers", href: "/careers" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Service", href: "/terms" },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <section class="bg-[var(--color-cloud)] py-12 border-b border-[var(--color-border)]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="font-display font-extrabold text-3xl text-[var(--color-charcoal)] mb-2">Sitemap</h1>
+      <p class="text-[var(--color-muted)]">Every page on dandhac.com — find what you're looking for.</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {sections.map(section => (
+          <div>
+            <h2 class="font-display font-bold text-base text-[var(--color-navy)] uppercase tracking-wider mb-4 pb-2 border-b border-[var(--color-border)]">{section.title}</h2>
+            <ul class="space-y-2">
+              {section.links.map(link => (
+                <li>
+                  <a href={link.href} class="flex items-center gap-2 text-sm text-[var(--color-charcoal)] hover:text-[var(--color-navy)] transition-colors group">
+                    <svg class="text-[var(--color-muted)] group-hover:text-[var(--color-navy)] transition-colors" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

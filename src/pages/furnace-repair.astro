@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import FAQAccordion from '../components/FAQAccordion.astro';
 
-const title = "Furnace Repair in Tucson, AZ | D&H Air Conditioning";
-const description = "Gas furnace repair in Tucson by NATE-certified techs. All brands, all makes. Same-day service available. Call D&H at (520) 408-2665.";
+const title = "Furnace Repair in Tucson, AZ | D&H Air Conditioning & Heating";
+const description = "Gas furnace repair in Tucson by NATE-certified techs. CO safety check included on every visit. All brands, same-day available. Call (520) 408-2665.";
 const canonical = "https://dandhac.com/furnace-repair";
 
 const faqItems = [
@@ -24,82 +24,121 @@ const faqSchema = {
   }))
 };
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Furnace Repair",
+  "provider": { "@type": "HVACBusiness", "name": "D&H Air Conditioning & Heating & Plumbing", "telephone": "(520) 408-2665", "url": "https://dandhac.com" },
+  "areaServed": "Tucson, AZ",
+  "description": "Gas furnace repair in Tucson on all makes and models. CO safety check included. NATE-certified technicians."
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://dandhac.com" },
+    { "@type": "ListItem", "position": 2, "name": "Heating", "item": "https://dandhac.com/heating" },
+    { "@type": "ListItem", "position": 3, "name": "Furnace Repair", "item": canonical }
+  ]
+};
+
 const symptoms = [
-  {
-    title: "Ignition failure",
-    desc: "Furnace starts then shuts off, or won't light at all.",
-    urgent: false
-  },
-  {
-    title: "Inducer faults",
-    desc: "Unusual noises from the inducer motor before startup.",
-    urgent: false
-  },
-  {
-    title: "Burner issues",
-    desc: "Yellow or flickering flame instead of a steady blue flame.",
-    urgent: false
-  },
-  {
-    title: "Cracked heat exchangers",
-    desc: "Dangerous — CO can leak into living space. Requires immediate inspection.",
-    urgent: true
-  },
-  {
-    title: "Limit-switch trips",
-    desc: "System shuts down repeatedly to protect against overheating.",
-    urgent: false
-  },
-  {
-    title: "Gas-valve faults",
-    desc: "Gas isn't reaching the burner properly — system runs but doesn't heat.",
-    urgent: false
-  },
-  {
-    title: "Blower failures",
-    desc: "Motor runs but no air moves through the vents.",
-    urgent: false
-  },
+  { title: "Ignition failure", desc: "Furnace starts then shuts off, or won't light at all. Often a faulty igniter or flame sensor.", urgent: false },
+  { title: "Inducer faults", desc: "Unusual noises from the inducer motor before startup — a common early-warning sign.", urgent: false },
+  { title: "Burner issues", desc: "Yellow or flickering flame instead of a steady blue. Can indicate combustion problems.", urgent: false },
+  { title: "Cracked heat exchanger", desc: "Dangerous — CO can leak into living space. Requires immediate inspection and repair.", urgent: true },
+  { title: "Limit-switch trips", desc: "System shuts down repeatedly to protect against overheating — often an airflow issue.", urgent: false },
+  { title: "Gas-valve faults", desc: "Gas isn't reaching the burner properly — system runs but doesn't heat.", urgent: false },
+  { title: "Blower failures", desc: "Motor runs but no air moves through the vents. Indicates motor or belt failure.", urgent: false },
 ];
 
 const processSteps = [
   { num: '1', label: 'Diagnosis', desc: 'Full system evaluation — we find the root cause, not just the symptom.' },
   { num: '2', label: 'Safety inspection', desc: 'Every repair visit includes a CO check and heat exchanger inspection.' },
   { num: '3', label: 'Repair quote', desc: 'Clear, upfront pricing before any work begins. You decide.' },
-  { num: '4', label: 'Repair or replacement recommendation', desc: 'Honest advice: we\'ll tell you if repair makes more sense than replacement — and vice versa.' },
+  { num: '4', label: 'Honest recommendation', desc: "We'll tell you if repair makes more sense than replacement — and vice versa." },
 ];
+
+const brands = ["Carrier","Trane","Lennox","Daikin","Rheem","York","Goodman","American Standard","Bryant","Heil","Ruud","Amana"];
 ---
 
-<BaseLayout title={title} description={description} canonical={canonical} schema={faqSchema}>
+<BaseLayout title={title} description={description} canonical={canonical} schema={[faqSchema, serviceSchema, breadcrumbSchema]}>
 
-  <!-- Hero -->
-  <section class="bg-[var(--color-cloud)] border-b border-[var(--color-border)]">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-2xl">
-        <div class="inline-flex items-center gap-2 bg-white text-[var(--color-navy)] text-xs font-bold px-4 py-2 rounded-full mb-5 uppercase tracking-wider border border-[var(--color-border)] shadow-sm">
-          NATE-Certified · All Furnace Brands · CO Safety Check Included
+  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <section class="bg-gradient-to-br from-[var(--color-navy)] to-[var(--color-navy-dark)] hero-pattern relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-orange-500/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <nav class="flex items-center gap-1.5 text-xs text-blue-400 mb-6">
+            <a href="/" class="hover:text-blue-200 transition-colors">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <a href="/heating" class="hover:text-blue-200 transition-colors">Heating</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            <span class="text-blue-200">Furnace Repair</span>
+          </nav>
+          <div class="inline-flex items-center gap-2 bg-white/10 border border-white/15 text-blue-200 text-xs font-bold px-3.5 py-1.5 rounded-full mb-5 uppercase tracking-wider">
+            NATE-Certified · CO Check Included · All Brands
+          </div>
+          <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-white leading-[1.05] mb-5">
+            Furnace Repair in Tucson —
+            <span class="text-orange-300">We Find It, Fix It, Fast</span>
+          </h1>
+          <p class="text-blue-200 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
+            Gas furnace acting up? Our NATE-certified techs diagnose and repair all makes and models — and every visit includes a carbon monoxide safety check.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-3 mb-8">
+            <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-7 py-4 rounded-xl transition-colors shadow-lg">
+              Schedule Furnace Repair
+            </a>
+            <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white hover:bg-white/10 font-bold text-base px-7 py-4 rounded-xl transition-all">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Call (520) 408-2665
+            </a>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            {['Same-day available', 'Upfront pricing', 'Parts on-truck', 'CO test every visit'].map(t => (
+              <span class="flex items-center gap-1.5 text-blue-200 text-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-        <h1 class="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl text-[var(--color-navy)] leading-tight mb-5">
-          Furnace Repair in Tucson —<br class="hidden md:block" /> We Find It, Fix It, Fast
-        </h1>
-        <p class="text-[var(--color-muted)] text-xl leading-relaxed mb-8">
-          Gas furnace acting up? Our NATE-certified technicians diagnose and repair all furnace makes and models.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <a href="/contact" class="inline-flex items-center justify-center gap-2 bg-[var(--color-orange)] hover:bg-[var(--color-orange-dark)] text-white font-bold text-base px-7 py-4 rounded-xl transition-colors shadow-lg">
-            Schedule Furnace Repair
-          </a>
-          <a href="tel:5204082665" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-navy)] text-[var(--color-navy)] hover:bg-[var(--color-navy)] hover:text-white font-bold text-base px-7 py-4 rounded-xl transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call (520) 408-2665
-          </a>
+        <!-- CO warning + what we repair -->
+        <div class="flex flex-col gap-4">
+          <div class="bg-red-900/40 border border-red-500/50 rounded-2xl p-6">
+            <div class="flex items-start gap-3">
+              <svg class="text-red-400 shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+              <div>
+                <p class="text-red-300 font-bold text-sm mb-1">Carbon Monoxide Safety</p>
+                <p class="text-red-200 text-sm leading-relaxed">If your CO alarm goes off or anyone feels dizzy near the furnace — <strong>evacuate immediately and call us.</strong> Available 24/7.</p>
+                <a href="tel:5206643699" class="mt-3 inline-flex items-center gap-1.5 text-red-300 hover:text-red-100 font-bold text-sm">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  Emergency: (520) 664-3699
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="glass rounded-2xl p-6">
+            <p class="text-blue-200 text-xs font-bold uppercase tracking-wider mb-4">Furnace Components We Repair</p>
+            <div class="grid grid-cols-2 gap-2">
+              {['Igniter & flame sensor', 'Inducer motor', 'Heat exchanger', 'Gas valve', 'Limit switch', 'Blower motor', 'Control board', 'Draft inducer'].map(c => (
+                <div class="flex items-center gap-2 text-white text-xs">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {c}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Symptoms section -->
-  <section class="py-16 md:py-24 bg-white">
+  <section class="py-16 md:py-24 bg-[var(--color-cloud)]">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 reveal">
         <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-3">What's wrong with your furnace?</h2>
@@ -107,7 +146,7 @@ const processSteps = [
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         {symptoms.map(s => (
-          <div class={`reveal rounded-2xl p-6 border shadow-sm ${s.urgent ? 'bg-red-50 border-red-300' : 'bg-[var(--color-cloud)] border-[var(--color-border)]'}`}>
+          <div class={`reveal rounded-2xl p-6 border shadow-sm ${s.urgent ? 'bg-red-50 border-red-300' : 'bg-white border-[var(--color-border)]'}`}>
             {s.urgent && (
               <div class="inline-flex items-center gap-1.5 bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-3 uppercase tracking-wider">
                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -129,7 +168,7 @@ const processSteps = [
   </section>
 
   <!-- Process section -->
-  <section class="py-16 md:py-20 bg-[var(--color-cloud)]">
+  <section class="py-16 md:py-20 bg-white">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-12 reveal">
         <h2 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-3">How a furnace repair visit works</h2>
@@ -137,11 +176,26 @@ const processSteps = [
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {processSteps.map(step => (
-          <div class="reveal bg-white rounded-2xl p-6 border border-[var(--color-border)] shadow-sm text-center">
+          <div class="reveal bg-[var(--color-cloud)] rounded-2xl p-6 border border-[var(--color-border)] shadow-sm text-center">
             <div class="w-12 h-12 rounded-full bg-[var(--color-navy)] text-white font-extrabold text-lg flex items-center justify-center mx-auto mb-4">{step.num}</div>
             <h3 class="font-display font-bold text-base text-[var(--color-charcoal)] mb-2">{step.label}</h3>
             <p class="text-[var(--color-muted)] text-sm leading-relaxed">{step.desc}</p>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Brands -->
+  <section class="py-14 bg-[var(--color-cloud)]">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8 reveal">
+        <h2 class="font-display font-extrabold text-2xl md:text-3xl text-[var(--color-charcoal)] mb-2">We repair all major furnace brands</h2>
+        <p class="text-[var(--color-muted)]">If it burns gas and heats your home, we know how to fix it.</p>
+      </div>
+      <div class="flex flex-wrap gap-3 justify-center">
+        {brands.map(brand => (
+          <span class="bg-white border border-[var(--color-border)] text-[var(--color-charcoal)] font-semibold text-sm px-4 py-2 rounded-full shadow-sm">{brand}</span>
         ))}
       </div>
     </div>

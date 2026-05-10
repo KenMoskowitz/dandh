@@ -3,36 +3,57 @@ interface Props {
   title: string;
   description: string;
   href: string;
-  icon: string; // SVG path string or inline SVG
+  icon: string;
   urgent?: boolean;
+  tag?: string;
 }
 
-const { title, description, href, icon, urgent = false } = Astro.props;
+const { title, description, href, icon, urgent = false, tag } = Astro.props;
 ---
 
 <a
   href={href}
-  class={`group block rounded-2xl p-6 border transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5
+  class={`group relative block rounded-2xl p-6 border-2 transition-all duration-250 card-lift overflow-hidden
     ${urgent
-      ? 'border-orange-200 bg-orange-50 hover:border-[var(--color-orange)]'
-      : 'border-[var(--color-border)] bg-white hover:border-[var(--color-sky)]'
+      ? 'border-orange-200 bg-gradient-to-br from-orange-50 to-red-50 hover:border-[var(--color-orange)] hover:shadow-orange-100/60'
+      : 'border-[var(--color-border)] bg-white hover:border-[var(--color-sky)] hover:shadow-sky/10'
     }`}
 >
-  <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors
+  {/* Background accent on hover */}
+  <div class={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-2xl
     ${urgent
-      ? 'bg-orange-100 text-[var(--color-orange)] group-hover:bg-[var(--color-orange)] group-hover:text-white'
-      : 'bg-[var(--color-cloud)] text-[var(--color-sky)] group-hover:bg-[var(--color-sky)] group-hover:text-white'
+      ? 'bg-gradient-to-br from-orange-50/80 to-red-50/80'
+      : 'bg-gradient-to-br from-sky/3 to-navy/3'
+    }`}></div>
+
+  {tag && (
+    <span class={`absolute top-4 right-4 text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider
+      ${urgent ? 'bg-red-100 text-red-700' : 'bg-sky-100 text-sky-700'}`}>
+      {tag}
+    </span>
+  )}
+
+  <div class={`w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-all duration-250 relative z-10
+    ${urgent
+      ? 'bg-orange-100 text-[var(--color-orange)] group-hover:bg-[var(--color-orange)] group-hover:text-white group-hover:shadow-lg group-hover:shadow-orange-200'
+      : 'bg-[var(--color-cloud)] text-[var(--color-sky)] group-hover:bg-[var(--color-sky)] group-hover:text-white group-hover:shadow-lg group-hover:shadow-sky-200'
     }`}>
     <Fragment set:html={icon} />
   </div>
-  <h3 class={`font-display font-700 text-lg mb-2 transition-colors
-    ${urgent ? 'text-[var(--color-orange)] group-hover:text-[var(--color-orange-dark)]' : 'text-[var(--color-charcoal)] group-hover:text-[var(--color-navy)]'}`}>
+
+  <h3 class={`font-display font-bold text-lg mb-2 leading-snug relative z-10 transition-colors
+    ${urgent
+      ? 'text-[var(--color-orange)] group-hover:text-[var(--color-orange-dark)]'
+      : 'text-[var(--color-charcoal)] group-hover:text-[var(--color-navy)]'
+    }`}>
     {title}
   </h3>
-  <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-4">{description}</p>
-  <span class={`text-sm font-semibold flex items-center gap-1 transition-colors
+
+  <p class="text-sm text-[var(--color-muted)] leading-relaxed mb-5 relative z-10">{description}</p>
+
+  <span class={`text-sm font-semibold flex items-center gap-1.5 relative z-10 transition-all
     ${urgent ? 'text-[var(--color-orange)]' : 'text-[var(--color-sky)]'}`}>
     Learn More
-    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    <svg class="transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
   </span>
 </a>

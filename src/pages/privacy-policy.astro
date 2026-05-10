@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Privacy Policy | D&H Air Conditioning & Heating & Plumbing";
+const description = "Privacy policy for D&H Air Conditioning & Heating & Plumbing. How we collect, use, and protect your personal information.";
+const canonical = "https://dandhac.com/privacy-policy";
+const lastUpdated = "January 1, 2025";
+---
+
+<BaseLayout title={title} description={description} canonical={canonical}>
+
+  <section class="bg-[var(--color-cloud)] py-12 border-b border-[var(--color-border)]">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav class="flex items-center gap-1.5 text-xs text-[var(--color-muted)] mb-4">
+        <a href="/" class="hover:text-[var(--color-navy)] transition-colors">Home</a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+        <span>Privacy Policy</span>
+      </nav>
+      <h1 class="font-display font-extrabold text-3xl md:text-4xl text-[var(--color-charcoal)] mb-2">Privacy Policy</h1>
+      <p class="text-[var(--color-muted)] text-sm">Last updated: {lastUpdated}</p>
+    </div>
+  </section>
+
+  <section class="py-14 bg-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="prose prose-sm max-w-none text-[var(--color-muted)] leading-relaxed space-y-8">
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">1. Information We Collect</h2>
+          <p>D&H Air Conditioning & Heating & Plumbing ("D&H," "we," "our," or "us") collects information you voluntarily provide when you:</p>
+          <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+            <li>Contact us by phone, form, or email</li>
+            <li>Schedule a service appointment online</li>
+            <li>Sign up for the Family Maintenance Plan</li>
+            <li>Request a quote or estimate</li>
+          </ul>
+          <p class="mt-3 text-sm">This may include your name, address, phone number, email address, and information about your HVAC or plumbing systems. We also collect standard web analytics data (pages visited, browser type, referring URLs) through our website platform.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">2. How We Use Your Information</h2>
+          <p class="text-sm">We use the information we collect to:</p>
+          <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+            <li>Schedule and dispatch service appointments</li>
+            <li>Communicate with you about your service requests</li>
+            <li>Send appointment reminders and follow-up communications</li>
+            <li>Process payments and manage your account</li>
+            <li>Comply with legal obligations</li>
+          </ul>
+          <p class="mt-3 text-sm">We do not sell your personal information to third parties.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">3. Sharing Your Information</h2>
+          <p class="text-sm">We share your information only as necessary to provide our services or as required by law:</p>
+          <ul class="list-disc list-inside mt-2 space-y-1 text-sm">
+            <li><strong>ServiceTitan</strong> — our scheduling and dispatch software</li>
+            <li><strong>Payment processors</strong> — to process payments securely</li>
+            <li><strong>Law enforcement or courts</strong> — when legally required</li>
+          </ul>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">4. Cookies and Analytics</h2>
+          <p class="text-sm">Our website uses cookies for basic functionality and analytics. We may use Google Analytics or similar tools to understand how visitors use our site. You can control cookie settings in your browser.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">5. Your Rights</h2>
+          <p class="text-sm">You may request access to, correction of, or deletion of personal information we hold about you. To exercise these rights, contact us at the information below.</p>
+        </div>
+
+        <div>
+          <h2 class="font-display font-bold text-xl text-[var(--color-charcoal)] mb-3">6. Contact Us</h2>
+          <p class="text-sm">For privacy-related questions, contact D&H at:</p>
+          <address class="not-italic mt-2 text-sm">
+            D&H Air Conditioning & Heating & Plumbing<br />
+            3990 S Evans Blvd, Tucson, AZ 85714<br />
+            Phone: <a href="tel:5204082665" class="text-[var(--color-navy)] hover:underline">(520) 408-2665</a>
+          </address>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
